@@ -1,11 +1,11 @@
 extends KinematicBody
 
 
-const ROTATION = 0.01
-const GRAVITY = -20
-const SPEED = 300
-const RUN_SPEED = 2.5
-const JUMP_SPEED = 7
+export var ROTATION = 0.01
+export var GRAVITY = -20
+export var SPEED = 300
+export var RUN_SPEED = 2.5
+export var JUMP_SPEED = 7
 
 var velocity = Vector3()
 
