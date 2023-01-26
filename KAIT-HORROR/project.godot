@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="KAIT"
-run/main_scene="res://Scenes/mainScene.tscn"
+run/main_scene="res://Scenes/testScene.tscn"
 config/icon="res://icon.png"
 
 [gui]

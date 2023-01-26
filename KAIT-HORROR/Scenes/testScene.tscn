@@ -1,0 +1,210 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+
+[sub_resource type="PlaneMesh" id=1]
+
+[sub_resource type="ConcavePolygonShape" id=2]
+data = PoolVector3Array( 1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1 )
+
+[sub_resource type="CubeMesh" id=3]
+
+[sub_resource type="ConcavePolygonShape" id=4]
+data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
+
+[node name="Main" type="Spatial"]
+
+[node name="Floor" type="MeshInstance" parent="."]
+transform = Transform( 20, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0 )
+mesh = SubResource( 1 )
+
+[node name="StaticBody" type="StaticBody" parent="Floor"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Floor/StaticBody"]
+shape = SubResource( 2 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.408768, 2.45544, -0.183034 )
+
+[node name="Light" type="Spatial" parent="."]
+
+[node name="SpotLight" type="SpotLight" parent="Light"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 18.5195, 5.252, 0 )
+spot_range = 6.66728
+spot_angle = 46.8716
+
+[node name="SpotLight2" type="SpotLight" parent="Light"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 18.5195, 5.252, -9 )
+spot_range = 6.66728
+spot_angle = 46.8716
+
+[node name="SpotLight4" type="SpotLight" parent="Light"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 18.5195, 5.252, 8 )
+spot_range = 6.66728
+spot_angle = 46.8716
+
+[node name="SpotLight5" type="SpotLight" parent="Light"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 18.6, 5.30727, 16.9496 )
+spot_range = 6.66728
+spot_angle = 46.8716
+
+[node name="SpotLight3" type="SpotLight" parent="Light"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 18.5195, 5.252, -18 )
+spot_range = 6.66728
+spot_angle = 46.8716
+
+[node name="SpotLight6" type="SpotLight" parent="Light"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 9.51953, 5.252, 0 )
+spot_range = 6.66728
+spot_angle = 46.8716
+
+[node name="SpotLight7" type="SpotLight" parent="Light"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 9.51953, 5.252, -9 )
+spot_range = 6.66728
+spot_angle = 46.8716
+
+[node name="SpotLight8" type="SpotLight" parent="Light"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 9.51953, 5.252, 8 )
+spot_range = 6.66728
+spot_angle = 46.8716
+
+[node name="SpotLight9" type="SpotLight" parent="Light"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 9.60002, 5.30727, 16.9496 )
+spot_range = 6.66728
+spot_angle = 46.8716
+
+[node name="SpotLight10" type="SpotLight" parent="Light"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 9.51953, 5.252, -18 )
+spot_range = 6.66728
+spot_angle = 46.8716
+
+[node name="SpotLight11" type="SpotLight" parent="Light"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.51953, 5.252, 0 )
+spot_range = 6.66728
+spot_angle = 46.8716
+
+[node name="SpotLight12" type="SpotLight" parent="Light"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.51953, 5.252, -9 )
+spot_range = 6.66728
+spot_angle = 46.8716
+
+[node name="SpotLight13" type="SpotLight" parent="Light"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.51953, 5.252, 8 )
+spot_range = 6.66728
+spot_angle = 46.8716
+
+[node name="SpotLight14" type="SpotLight" parent="Light"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.60002, 5.30727, 16.9496 )
+spot_range = 6.66728
+spot_angle = 46.8716
+
+[node name="SpotLight15" type="SpotLight" parent="Light"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.51953, 5.252, -18 )
+spot_range = 6.66728
+spot_angle = 46.8716
+
+[node name="SpotLight16" type="SpotLight" parent="Light"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -5.48047, 5.252, 0 )
+spot_range = 6.66728
+spot_angle = 46.8716
+
+[node name="SpotLight17" type="SpotLight" parent="Light"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -5.48047, 5.252, -9 )
+spot_range = 6.66728
+spot_angle = 46.8716
+
+[node name="SpotLight18" type="SpotLight" parent="Light"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -5.48047, 5.252, 8 )
+spot_range = 6.66728
+spot_angle = 46.8716
+
+[node name="SpotLight19" type="SpotLight" parent="Light"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -5.39998, 5.30727, 16.9496 )
+spot_range = 6.66728
+spot_angle = 46.8716
+
+[node name="SpotLight20" type="SpotLight" parent="Light"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -5.48047, 5.252, -18 )
+spot_range = 6.66728
+spot_angle = 46.8716
+
+[node name="SpotLight21" type="SpotLight" parent="Light"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -12.4805, 5.252, 0 )
+spot_range = 6.66728
+spot_angle = 46.8716
+
+[node name="SpotLight22" type="SpotLight" parent="Light"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -12.4805, 5.252, -9 )
+spot_range = 6.66728
+spot_angle = 46.8716
+
+[node name="SpotLight23" type="SpotLight" parent="Light"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -12.4805, 5.252, 8 )
+spot_range = 6.66728
+spot_angle = 46.8716
+
+[node name="SpotLight24" type="SpotLight" parent="Light"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -12.4, 5.30727, 16.9496 )
+spot_range = 6.66728
+spot_angle = 46.8716
+
+[node name="SpotLight25" type="SpotLight" parent="Light"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -12.4805, 5.252, -18 )
+spot_range = 6.66728
+spot_angle = 46.8716
+
+[node name="Boxes" type="Spatial" parent="."]
+
+[node name="MeshInstance" type="MeshInstance" parent="Boxes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 6 )
+mesh = SubResource( 3 )
+
+[node name="StaticBody" type="StaticBody" parent="Boxes/MeshInstance"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Boxes/MeshInstance/StaticBody"]
+shape = SubResource( 4 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="Boxes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, 3 )
+mesh = SubResource( 3 )
+
+[node name="StaticBody" type="StaticBody" parent="Boxes/MeshInstance2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Boxes/MeshInstance2/StaticBody"]
+shape = SubResource( 4 )
+
+[node name="MeshInstance3" type="MeshInstance" parent="Boxes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, -6 )
+mesh = SubResource( 3 )
+
+[node name="StaticBody" type="StaticBody" parent="Boxes/MeshInstance3"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Boxes/MeshInstance3/StaticBody"]
+shape = SubResource( 4 )
+
+[node name="MeshInstance4" type="MeshInstance" parent="Boxes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1, -6 )
+mesh = SubResource( 3 )
+
+[node name="StaticBody" type="StaticBody" parent="Boxes/MeshInstance4"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Boxes/MeshInstance4/StaticBody"]
+shape = SubResource( 4 )
+
+[node name="MeshInstance5" type="MeshInstance" parent="Boxes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, -6 )
+mesh = SubResource( 3 )
+
+[node name="StaticBody" type="StaticBody" parent="Boxes/MeshInstance5"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Boxes/MeshInstance5/StaticBody"]
+shape = SubResource( 4 )
+
+[node name="MeshInstance6" type="MeshInstance" parent="Boxes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, 11 )
+mesh = SubResource( 3 )
+
+[node name="StaticBody" type="StaticBody" parent="Boxes/MeshInstance6"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Boxes/MeshInstance6/StaticBody"]
+shape = SubResource( 4 )
