@@ -24,15 +24,20 @@ func _physics_process(delta):
 		
 	if Input.is_action_pressed("move_forward"):
 		direction.z = -1
+		$floppa.get_child(2).play("metarigAction")
 	if Input.is_action_pressed("move_backward"):
 		direction.z = 1
+		$floppa.get_child(2).play("metarigAction")
 	if Input.is_action_pressed("move_left"):
 		direction.x = -1
+		$floppa.get_child(2).play("metarigAction")
 	if Input.is_action_pressed("move_right"):
 		direction.x = 1
+		$floppa.get_child(2).play("metarigAction")
 	
 	if Input.is_action_pressed("run"):
 		direction *= RUN_SPEED
+		$floppa.get_child(2).play("metarigAction,", -1, 3.0)
 		
 	if direction:
 		direction *= SPEED * delta
