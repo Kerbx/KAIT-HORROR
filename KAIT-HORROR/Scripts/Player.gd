@@ -36,8 +36,9 @@ func _physics_process(delta):
 		$floppa.get_child(2).play("metarigAction")
 	
 	if Input.is_action_pressed("run"):
-		direction *= RUN_SPEED
-		$floppa.get_child(2).play("metarigAction,", -1, 3.0)
+		if is_on_floor():
+			direction *= RUN_SPEED
+			$floppa.get_child(2).play("metarigAction,", -1, 3.0)
 		
 	if direction:
 		direction *= SPEED * delta
