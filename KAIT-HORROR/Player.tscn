@@ -10,7 +10,8 @@ extents = Vector3( 1, 1, 2.12697 )
 
 [node name="KinematicBody" type="KinematicBody" parent="."]
 script = ExtResource( 1 )
-JUMP_SPEED = 10
+GRAVITY = -40
+JUMP_SPEED = 15
 
 [node name="Spatial" type="Spatial" parent="KinematicBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.931682, 0 )
