@@ -11,14 +11,12 @@ config_version=4
 [application]
 
 config/name="KAIT"
-run/main_scene="res://Scenes/testScene.tscn"
+run/main_scene="res://Scenes/Levels/testScene.tscn"
 config/icon="res://icon.png"
 
-[display]
+[autoload]
 
-window/size/width=1920
-window/size/height=1080
-window/size/fullscreen=true
+Global="*res://Scripts/Global.gd"
 
 [gui]
 
