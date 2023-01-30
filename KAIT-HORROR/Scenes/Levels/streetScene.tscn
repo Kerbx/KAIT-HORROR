@@ -1,9 +1,284 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=15 format=2]
 
-[sub_resource type="PlaneMesh" id=1]
+[ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Models/house/9house.glb" type="PackedScene" id=2]
+[ext_resource path="res://Models/church/church.glb" type="PackedScene" id=3]
+[ext_resource path="res://Models/panelka/panelka2.glb" type="PackedScene" id=4]
+[ext_resource path="res://Models/khruschevka/khrushchevka.glb" type="PackedScene" id=5]
+
+[sub_resource type="CubeMesh" id=3]
+
+[sub_resource type="BoxShape" id=2]
+
+[sub_resource type="BoxShape" id=4]
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 22.2421, 1.19991, 4.52205 )
+
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 2.69731, 0.183233, 1.27554 )
+
+[sub_resource type="BoxShape" id=7]
+extents = Vector3( 0.653236, 1.96568, 0.222984 )
+
+[sub_resource type="BoxShape" id=8]
+extents = Vector3( 6.03572, 14.76, 0.945627 )
+
+[sub_resource type="BoxShape" id=9]
+extents = Vector3( 1.97755, 14.3347, 1 )
+
+[sub_resource type="BoxShape" id=10]
+extents = Vector3( 4.06346, 15.1438, 1.19859 )
 
 [node name="Main" type="Spatial"]
 
-[node name="Floor" type="MeshInstance" parent="."]
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -400.595, 2.31195, -1.00787 )
+
+[node name="Floor" type="StaticBody" parent="."]
 transform = Transform( 400, 0, 0, 0, 1, 0, 0, 0, 150, -4.61804, -0.858871, 6.4393 )
-mesh = SubResource( 1 )
+
+[node name="Floor" type="MeshInstance" parent="Floor"]
+mesh = SubResource( 3 )
+skeleton = NodePath("../..")
+
+[node name="CollisionShape" type="CollisionShape" parent="Floor"]
+shape = SubResource( 2 )
+
+[node name="Houses" type="Spatial" parent="."]
+
+[node name="9house" parent="Houses" instance=ExtResource( 2 )]
+transform = Transform( -9.17939e-08, 0, -2.1, 0, 2.1, 0, 2.1, 0, -9.17939e-08, -321.729, -0.379329, -85.0895 )
+
+[node name="StaticBody" type="StaticBody" parent="Houses/9house"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Houses/9house/StaticBody"]
+transform = Transform( 6.77756, 0, 2.79599e-08, 0, 18.748, 0, 2.79475e-08, 0, 7.41716, 0, 18.0387, 0 )
+shape = SubResource( 4 )
+
+[node name="9house2" parent="Houses" instance=ExtResource( 2 )]
+transform = Transform( -9.17939e-08, 0, -2.1, 0, 2.1, 0, 2.1, 0, -9.17939e-08, -273.384, -0.379329, -85.0895 )
+
+[node name="StaticBody" type="StaticBody" parent="Houses/9house2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Houses/9house2/StaticBody"]
+transform = Transform( 6.77756, 0, 2.79599e-08, 0, 18.748, 0, 2.79475e-08, 0, 7.41716, 0, 18.0387, 0 )
+shape = SubResource( 4 )
+
+[node name="panelka1" parent="Houses" instance=ExtResource( 4 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -285.356, 0, 57.2303 )
+
+[node name="StaticBody" type="StaticBody" parent="Houses/panelka1"]
+
+[node name="MainShape" type="CollisionShape" parent="Houses/panelka1/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 11.9561, 0, 0, 0, 1, 0, 13.1955, 5.68506 )
+shape = SubResource( 5 )
+
+[node name="EntranceRoofShape1" type="CollisionShape" parent="Houses/panelka1/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1597, 3.64496, -0.112666 )
+shape = SubResource( 6 )
+
+[node name="EntranceRoofShape2" type="CollisionShape" parent="Houses/panelka1/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1864, 3.64496, -0.112666 )
+shape = SubResource( 6 )
+
+[node name="EntranceFrontShape1" type="CollisionShape" parent="Houses/panelka1/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3233, 1.60641, -0.534915 )
+shape = SubResource( 7 )
+
+[node name="EntranceFrontShape2" type="CollisionShape" parent="Houses/panelka1/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0223, 1.60641, -0.534915 )
+shape = SubResource( 7 )
+
+[node name="EntranceSideShape1" type="CollisionShape" parent="Houses/panelka1/StaticBody"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12.5535, 1.60641, 0.35799 )
+shape = SubResource( 7 )
+
+[node name="EntranceSideShape2" type="CollisionShape" parent="Houses/panelka1/StaticBody"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.7947, 1.60641, 0.35799 )
+shape = SubResource( 7 )
+
+[node name="LedgeShape1" type="CollisionShape" parent="Houses/panelka1/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.633, 0.910515 )
+shape = SubResource( 8 )
+
+[node name="LedgeShape2" type="CollisionShape" parent="Houses/panelka1/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.2559, 13.0763, 0.941357 )
+shape = SubResource( 9 )
+
+[node name="LedgeShape3" type="CollisionShape" parent="Houses/panelka1/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.2567, 13.0763, 0.941357 )
+shape = SubResource( 9 )
+
+[node name="LedgeShape4" type="CollisionShape" parent="Houses/panelka1/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.44031, 12.6583, 10.2298 )
+shape = SubResource( 10 )
+
+[node name="LedgeShape5" type="CollisionShape" parent="Houses/panelka1/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.44031, 12.6583, 10.2298 )
+shape = SubResource( 10 )
+
+[node name="khrushchevka" parent="Houses" instance=ExtResource( 5 )]
+transform = Transform( -4, 0, -6.9282, 0, 8, 0, 6.9282, 0, -4, -343.264, -43.9331, 112.45 )
+
+[node name="panelka2" parent="Houses" instance=ExtResource( 4 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -189.715, 0, 71.1404 )
+
+[node name="StaticBody" type="StaticBody" parent="Houses/panelka2"]
+
+[node name="MainShape" type="CollisionShape" parent="Houses/panelka2/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 11.9561, 0, 0, 0, 1, 0, 13.1955, 5.68506 )
+shape = SubResource( 5 )
+
+[node name="EntranceRoofShape1" type="CollisionShape" parent="Houses/panelka2/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1597, 3.64496, -0.112666 )
+shape = SubResource( 6 )
+
+[node name="EntranceRoofShape2" type="CollisionShape" parent="Houses/panelka2/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1864, 3.64496, -0.112666 )
+shape = SubResource( 6 )
+
+[node name="EntranceFrontShape1" type="CollisionShape" parent="Houses/panelka2/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3233, 1.60641, -0.534915 )
+shape = SubResource( 7 )
+
+[node name="EntranceFrontShape2" type="CollisionShape" parent="Houses/panelka2/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0223, 1.60641, -0.534915 )
+shape = SubResource( 7 )
+
+[node name="EntranceSideShape1" type="CollisionShape" parent="Houses/panelka2/StaticBody"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12.5535, 1.60641, 0.35799 )
+shape = SubResource( 7 )
+
+[node name="EntranceSideShape2" type="CollisionShape" parent="Houses/panelka2/StaticBody"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.7947, 1.60641, 0.35799 )
+shape = SubResource( 7 )
+
+[node name="LedgeShape1" type="CollisionShape" parent="Houses/panelka2/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.633, 0.910515 )
+shape = SubResource( 8 )
+
+[node name="LedgeShape2" type="CollisionShape" parent="Houses/panelka2/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.2559, 13.0763, 0.941357 )
+shape = SubResource( 9 )
+
+[node name="LedgeShape3" type="CollisionShape" parent="Houses/panelka2/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.2567, 13.0763, 0.941357 )
+shape = SubResource( 9 )
+
+[node name="LedgeShape4" type="CollisionShape" parent="Houses/panelka2/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.44031, 12.6583, 10.2298 )
+shape = SubResource( 10 )
+
+[node name="LedgeShape5" type="CollisionShape" parent="Houses/panelka2/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.44031, 12.6583, 10.2298 )
+shape = SubResource( 10 )
+
+[node name="panelka3" parent="Houses" instance=ExtResource( 4 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -94.7058, 0, 57.2303 )
+
+[node name="StaticBody" type="StaticBody" parent="Houses/panelka3"]
+
+[node name="MainShape" type="CollisionShape" parent="Houses/panelka3/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 11.9561, 0, 0, 0, 1, 0, 13.1955, 5.68506 )
+shape = SubResource( 5 )
+
+[node name="EntranceRoofShape1" type="CollisionShape" parent="Houses/panelka3/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1597, 3.64496, -0.112666 )
+shape = SubResource( 6 )
+
+[node name="EntranceRoofShape2" type="CollisionShape" parent="Houses/panelka3/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1864, 3.64496, -0.112666 )
+shape = SubResource( 6 )
+
+[node name="EntranceFrontShape1" type="CollisionShape" parent="Houses/panelka3/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3233, 1.60641, -0.534915 )
+shape = SubResource( 7 )
+
+[node name="EntranceFrontShape2" type="CollisionShape" parent="Houses/panelka3/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0223, 1.60641, -0.534915 )
+shape = SubResource( 7 )
+
+[node name="EntranceSideShape1" type="CollisionShape" parent="Houses/panelka3/StaticBody"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12.5535, 1.60641, 0.35799 )
+shape = SubResource( 7 )
+
+[node name="EntranceSideShape2" type="CollisionShape" parent="Houses/panelka3/StaticBody"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.7947, 1.60641, 0.35799 )
+shape = SubResource( 7 )
+
+[node name="LedgeShape1" type="CollisionShape" parent="Houses/panelka3/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.633, 0.910515 )
+shape = SubResource( 8 )
+
+[node name="LedgeShape2" type="CollisionShape" parent="Houses/panelka3/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.2559, 13.0763, 0.941357 )
+shape = SubResource( 9 )
+
+[node name="LedgeShape3" type="CollisionShape" parent="Houses/panelka3/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.2567, 13.0763, 0.941357 )
+shape = SubResource( 9 )
+
+[node name="LedgeShape4" type="CollisionShape" parent="Houses/panelka3/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.44031, 12.6583, 10.2298 )
+shape = SubResource( 10 )
+
+[node name="LedgeShape5" type="CollisionShape" parent="Houses/panelka3/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.44031, 12.6583, 10.2298 )
+shape = SubResource( 10 )
+
+[node name="panelka4" parent="Houses" instance=ExtResource( 4 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0.738281, 0, 70.0322 )
+
+[node name="StaticBody" type="StaticBody" parent="Houses/panelka4"]
+
+[node name="MainShape" type="CollisionShape" parent="Houses/panelka4/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 11.9561, 0, 0, 0, 1, 0, 13.1955, 5.68506 )
+shape = SubResource( 5 )
+
+[node name="EntranceRoofShape1" type="CollisionShape" parent="Houses/panelka4/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1597, 3.64496, -0.112666 )
+shape = SubResource( 6 )
+
+[node name="EntranceRoofShape2" type="CollisionShape" parent="Houses/panelka4/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1864, 3.64496, -0.112666 )
+shape = SubResource( 6 )
+
+[node name="EntranceFrontShape1" type="CollisionShape" parent="Houses/panelka4/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3233, 1.60641, -0.534915 )
+shape = SubResource( 7 )
+
+[node name="EntranceFrontShape2" type="CollisionShape" parent="Houses/panelka4/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0223, 1.60641, -0.534915 )
+shape = SubResource( 7 )
+
+[node name="EntranceSideShape1" type="CollisionShape" parent="Houses/panelka4/StaticBody"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12.5535, 1.60641, 0.35799 )
+shape = SubResource( 7 )
+
+[node name="EntranceSideShape2" type="CollisionShape" parent="Houses/panelka4/StaticBody"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.7947, 1.60641, 0.35799 )
+shape = SubResource( 7 )
+
+[node name="LedgeShape1" type="CollisionShape" parent="Houses/panelka4/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.633, 0.910515 )
+shape = SubResource( 8 )
+
+[node name="LedgeShape2" type="CollisionShape" parent="Houses/panelka4/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.2559, 13.0763, 0.941357 )
+shape = SubResource( 9 )
+
+[node name="LedgeShape3" type="CollisionShape" parent="Houses/panelka4/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.2567, 13.0763, 0.941357 )
+shape = SubResource( 9 )
+
+[node name="LedgeShape4" type="CollisionShape" parent="Houses/panelka4/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.44031, 12.6583, 10.2298 )
+shape = SubResource( 10 )
+
+[node name="LedgeShape5" type="CollisionShape" parent="Houses/panelka4/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.44031, 12.6583, 10.2298 )
+shape = SubResource( 10 )
+
+[node name="church" parent="." instance=ExtResource( 3 )]
+transform = Transform( 2.3, 0, 0, 0, 2.3, 0, 0, 0, 2.3, -273.2, 0, -99.4401 )
