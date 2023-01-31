@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=150 format=2]
 
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Models/house/9house.glb" type="PackedScene" id=2]
@@ -9,6 +9,130 @@
 [ext_resource path="res://Models/tree/tree1.glb" type="PackedScene" id=7]
 [ext_resource path="res://Textures/asphalt_02_diff_1k.jpg" type="Texture" id=8]
 [ext_resource path="res://Scenes/Objects/streetlight.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Media/Kuno/frame_118_delay-0.1s.png" type="Texture" id=10]
+[ext_resource path="res://Media/Kuno/frame_117_delay-0.1s.png" type="Texture" id=11]
+[ext_resource path="res://Media/Kuno/frame_119_delay-0.1s.png" type="Texture" id=12]
+[ext_resource path="res://Media/Kuno/frame_121_delay-0.1s.png" type="Texture" id=13]
+[ext_resource path="res://Media/Kuno/frame_122_delay-0.1s.png" type="Texture" id=14]
+[ext_resource path="res://Media/Kuno/frame_120_delay-0.1s.png" type="Texture" id=15]
+[ext_resource path="res://Media/Kuno/frame_116_delay-0.1s.png" type="Texture" id=16]
+[ext_resource path="res://Media/Kuno/frame_003_delay-0.1s.png" type="Texture" id=17]
+[ext_resource path="res://Media/Kuno/frame_001_delay-0.1s.png" type="Texture" id=18]
+[ext_resource path="res://Media/Kuno/frame_000_delay-0.1s.png" type="Texture" id=19]
+[ext_resource path="res://Media/Kuno/frame_002_delay-0.1s.png" type="Texture" id=20]
+[ext_resource path="res://Media/Kuno/frame_005_delay-0.1s.png" type="Texture" id=21]
+[ext_resource path="res://Media/Kuno/frame_010_delay-0.1s.png" type="Texture" id=22]
+[ext_resource path="res://Media/Kuno/frame_008_delay-0.1s.png" type="Texture" id=23]
+[ext_resource path="res://Media/Kuno/frame_011_delay-0.1s.png" type="Texture" id=24]
+[ext_resource path="res://Media/Kuno/frame_004_delay-0.1s.png" type="Texture" id=25]
+[ext_resource path="res://Media/Kuno/frame_006_delay-0.1s.png" type="Texture" id=26]
+[ext_resource path="res://Media/Kuno/frame_007_delay-0.1s.png" type="Texture" id=27]
+[ext_resource path="res://Media/Kuno/frame_009_delay-0.1s.png" type="Texture" id=28]
+[ext_resource path="res://Media/Kuno/frame_072_delay-0.1s.png" type="Texture" id=29]
+[ext_resource path="res://Media/Kuno/frame_075_delay-0.1s.png" type="Texture" id=30]
+[ext_resource path="res://Media/Kuno/frame_047_delay-0.1s.png" type="Texture" id=31]
+[ext_resource path="res://Media/Kuno/frame_055_delay-0.1s.png" type="Texture" id=32]
+[ext_resource path="res://Media/Kuno/frame_053_delay-0.1s.png" type="Texture" id=33]
+[ext_resource path="res://Media/Kuno/frame_060_delay-0.1s.png" type="Texture" id=34]
+[ext_resource path="res://Media/Kuno/frame_066_delay-0.1s.png" type="Texture" id=35]
+[ext_resource path="res://Media/Kuno/frame_052_delay-0.1s.png" type="Texture" id=36]
+[ext_resource path="res://Media/Kuno/frame_065_delay-0.1s.png" type="Texture" id=37]
+[ext_resource path="res://Media/Kuno/frame_073_delay-0.1s.png" type="Texture" id=38]
+[ext_resource path="res://Media/Kuno/frame_076_delay-0.1s.png" type="Texture" id=39]
+[ext_resource path="res://Media/Kuno/frame_077_delay-0.1s.png" type="Texture" id=40]
+[ext_resource path="res://Media/Kuno/frame_074_delay-0.1s.png" type="Texture" id=41]
+[ext_resource path="res://Media/Kuno/frame_050_delay-0.1s.png" type="Texture" id=42]
+[ext_resource path="res://Media/Kuno/frame_059_delay-0.1s.png" type="Texture" id=43]
+[ext_resource path="res://Media/Kuno/frame_049_delay-0.1s.png" type="Texture" id=44]
+[ext_resource path="res://Media/Kuno/frame_054_delay-0.1s.png" type="Texture" id=45]
+[ext_resource path="res://Media/Kuno/frame_079_delay-0.1s.png" type="Texture" id=46]
+[ext_resource path="res://Media/Kuno/frame_080_delay-0.1s.png" type="Texture" id=47]
+[ext_resource path="res://Media/Kuno/frame_078_delay-0.1s.png" type="Texture" id=48]
+[ext_resource path="res://Media/Kuno/frame_046_delay-0.1s.png" type="Texture" id=49]
+[ext_resource path="res://Media/Kuno/frame_056_delay-0.1s.png" type="Texture" id=50]
+[ext_resource path="res://Media/Kuno/frame_067_delay-0.1s.png" type="Texture" id=51]
+[ext_resource path="res://Media/Kuno/frame_069_delay-0.1s.png" type="Texture" id=52]
+[ext_resource path="res://Media/Kuno/frame_068_delay-0.1s.png" type="Texture" id=53]
+[ext_resource path="res://Media/Kuno/frame_063_delay-0.1s.png" type="Texture" id=54]
+[ext_resource path="res://Media/Kuno/frame_051_delay-0.1s.png" type="Texture" id=55]
+[ext_resource path="res://Media/Kuno/frame_057_delay-0.1s.png" type="Texture" id=56]
+[ext_resource path="res://Media/Kuno/frame_058_delay-0.1s.png" type="Texture" id=57]
+[ext_resource path="res://Media/Kuno/frame_048_delay-0.1s.png" type="Texture" id=58]
+[ext_resource path="res://Media/Kuno/frame_061_delay-0.1s.png" type="Texture" id=59]
+[ext_resource path="res://Media/Kuno/frame_064_delay-0.1s.png" type="Texture" id=60]
+[ext_resource path="res://Media/Kuno/frame_070_delay-0.1s.png" type="Texture" id=61]
+[ext_resource path="res://Media/Kuno/frame_062_delay-0.1s.png" type="Texture" id=62]
+[ext_resource path="res://Media/Kuno/frame_071_delay-0.1s.png" type="Texture" id=63]
+[ext_resource path="res://Media/Kuno/frame_014_delay-0.1s.png" type="Texture" id=64]
+[ext_resource path="res://Media/Kuno/frame_016_delay-0.1s.png" type="Texture" id=65]
+[ext_resource path="res://Media/Kuno/frame_025_delay-0.1s.png" type="Texture" id=66]
+[ext_resource path="res://Media/Kuno/frame_020_delay-0.1s.png" type="Texture" id=67]
+[ext_resource path="res://Media/Kuno/frame_013_delay-0.1s.png" type="Texture" id=68]
+[ext_resource path="res://Media/Kuno/frame_022_delay-0.1s.png" type="Texture" id=69]
+[ext_resource path="res://Media/Kuno/frame_027_delay-0.1s.png" type="Texture" id=70]
+[ext_resource path="res://Media/Kuno/frame_028_delay-0.1s.png" type="Texture" id=71]
+[ext_resource path="res://Media/Kuno/frame_012_delay-0.1s.png" type="Texture" id=72]
+[ext_resource path="res://Media/Kuno/frame_017_delay-0.1s.png" type="Texture" id=73]
+[ext_resource path="res://Media/Kuno/frame_018_delay-0.1s.png" type="Texture" id=74]
+[ext_resource path="res://Media/Kuno/frame_024_delay-0.1s.png" type="Texture" id=75]
+[ext_resource path="res://Media/Kuno/frame_026_delay-0.1s.png" type="Texture" id=76]
+[ext_resource path="res://Media/Kuno/frame_019_delay-0.1s.png" type="Texture" id=77]
+[ext_resource path="res://Media/Kuno/frame_021_delay-0.1s.png" type="Texture" id=78]
+[ext_resource path="res://Media/Kuno/frame_023_delay-0.1s.png" type="Texture" id=79]
+[ext_resource path="res://Media/Kuno/frame_015_delay-0.1s.png" type="Texture" id=80]
+[ext_resource path="res://Media/Kuno/frame_113_delay-0.1s.png" type="Texture" id=81]
+[ext_resource path="res://Media/Kuno/frame_114_delay-0.1s.png" type="Texture" id=82]
+[ext_resource path="res://Media/Kuno/frame_115_delay-0.1s.png" type="Texture" id=83]
+[ext_resource path="res://Media/Kuno/frame_095_delay-0.1s.png" type="Texture" id=84]
+[ext_resource path="res://Media/Kuno/frame_097_delay-0.1s.png" type="Texture" id=85]
+[ext_resource path="res://Media/Kuno/frame_106_delay-0.1s.png" type="Texture" id=86]
+[ext_resource path="res://Media/Kuno/frame_082_delay-0.1s.png" type="Texture" id=87]
+[ext_resource path="res://Media/Kuno/frame_102_delay-0.1s.png" type="Texture" id=88]
+[ext_resource path="res://Media/Kuno/frame_108_delay-0.1s.png" type="Texture" id=89]
+[ext_resource path="res://Media/Kuno/frame_111_delay-0.1s.png" type="Texture" id=90]
+[ext_resource path="res://Media/Kuno/frame_085_delay-0.1s.png" type="Texture" id=91]
+[ext_resource path="res://Media/Kuno/frame_093_delay-0.1s.png" type="Texture" id=92]
+[ext_resource path="res://Media/Kuno/frame_105_delay-0.1s.png" type="Texture" id=93]
+[ext_resource path="res://Media/Kuno/frame_087_delay-0.1s.png" type="Texture" id=94]
+[ext_resource path="res://Media/Kuno/frame_081_delay-0.1s.png" type="Texture" id=95]
+[ext_resource path="res://Media/Kuno/frame_101_delay-0.1s.png" type="Texture" id=96]
+[ext_resource path="res://Media/Kuno/frame_089_delay-0.1s.png" type="Texture" id=97]
+[ext_resource path="res://Media/Kuno/frame_094_delay-0.1s.png" type="Texture" id=98]
+[ext_resource path="res://Media/Kuno/frame_107_delay-0.1s.png" type="Texture" id=99]
+[ext_resource path="res://Media/Kuno/frame_091_delay-0.1s.png" type="Texture" id=100]
+[ext_resource path="res://Media/Kuno/frame_098_delay-0.1s.png" type="Texture" id=101]
+[ext_resource path="res://Media/Kuno/frame_090_delay-0.1s.png" type="Texture" id=102]
+[ext_resource path="res://Media/Kuno/frame_104_delay-0.1s.png" type="Texture" id=103]
+[ext_resource path="res://Media/Kuno/frame_096_delay-0.1s.png" type="Texture" id=104]
+[ext_resource path="res://Media/Kuno/frame_099_delay-0.1s.png" type="Texture" id=105]
+[ext_resource path="res://Media/Kuno/frame_103_delay-0.1s.png" type="Texture" id=106]
+[ext_resource path="res://Media/Kuno/frame_109_delay-0.1s.png" type="Texture" id=107]
+[ext_resource path="res://Media/Kuno/frame_110_delay-0.1s.png" type="Texture" id=108]
+[ext_resource path="res://Media/Kuno/frame_084_delay-0.1s.png" type="Texture" id=109]
+[ext_resource path="res://Media/Kuno/frame_083_delay-0.1s.png" type="Texture" id=110]
+[ext_resource path="res://Media/Kuno/frame_088_delay-0.1s.png" type="Texture" id=111]
+[ext_resource path="res://Media/Kuno/frame_086_delay-0.1s.png" type="Texture" id=112]
+[ext_resource path="res://Media/Kuno/frame_100_delay-0.1s.png" type="Texture" id=113]
+[ext_resource path="res://Media/Kuno/frame_092_delay-0.1s.png" type="Texture" id=114]
+[ext_resource path="res://Media/Kuno/frame_112_delay-0.1s.png" type="Texture" id=115]
+[ext_resource path="res://Media/Kuno/frame_045_delay-0.1s.png" type="Texture" id=116]
+[ext_resource path="res://Media/Kuno/frame_036_delay-0.1s.png" type="Texture" id=117]
+[ext_resource path="res://Media/Kuno/frame_032_delay-0.1s.png" type="Texture" id=118]
+[ext_resource path="res://Media/Kuno/frame_030_delay-0.1s.png" type="Texture" id=119]
+[ext_resource path="res://Media/Kuno/frame_035_delay-0.1s.png" type="Texture" id=120]
+[ext_resource path="res://Media/Kuno/frame_037_delay-0.1s.png" type="Texture" id=121]
+[ext_resource path="res://Media/Kuno/frame_040_delay-0.1s.png" type="Texture" id=122]
+[ext_resource path="res://Media/Kuno/frame_034_delay-0.1s.png" type="Texture" id=123]
+[ext_resource path="res://Media/Kuno/frame_043_delay-0.1s.png" type="Texture" id=124]
+[ext_resource path="res://Media/Kuno/frame_029_delay-0.1s.png" type="Texture" id=125]
+[ext_resource path="res://Media/Kuno/frame_031_delay-0.1s.png" type="Texture" id=126]
+[ext_resource path="res://Media/Kuno/frame_033_delay-0.1s.png" type="Texture" id=127]
+[ext_resource path="res://Media/Kuno/frame_038_delay-0.1s.png" type="Texture" id=128]
+[ext_resource path="res://Media/Kuno/frame_039_delay-0.1s.png" type="Texture" id=129]
+[ext_resource path="res://Media/Kuno/frame_041_delay-0.1s.png" type="Texture" id=130]
+[ext_resource path="res://Media/Kuno/frame_042_delay-0.1s.png" type="Texture" id=131]
+[ext_resource path="res://Media/Kuno/frame_044_delay-0.1s.png" type="Texture" id=132]
+[ext_resource path="res://Models/church/church.gd" type="Script" id=133]
 
 [sub_resource type="CubeMesh" id=3]
 
@@ -41,6 +165,14 @@ extents = Vector3( 4.06346, 15.1438, 1.19859 )
 [sub_resource type="BoxShape" id=11]
 extents = Vector3( 2.37768, 2.98976, 6.46366 )
 
+[sub_resource type="SpriteFrames" id=17]
+animations = [ {
+"frames": [ ExtResource( 19 ), ExtResource( 18 ), ExtResource( 20 ), ExtResource( 17 ), ExtResource( 25 ), ExtResource( 21 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 23 ), ExtResource( 28 ), ExtResource( 22 ), ExtResource( 24 ), ExtResource( 72 ), ExtResource( 68 ), ExtResource( 64 ), ExtResource( 80 ), ExtResource( 65 ), ExtResource( 73 ), ExtResource( 74 ), ExtResource( 77 ), ExtResource( 67 ), ExtResource( 78 ), ExtResource( 69 ), ExtResource( 79 ), ExtResource( 75 ), ExtResource( 66 ), ExtResource( 76 ), ExtResource( 70 ), ExtResource( 71 ), ExtResource( 125 ), ExtResource( 119 ), ExtResource( 126 ), ExtResource( 118 ), ExtResource( 127 ), ExtResource( 123 ), ExtResource( 120 ), ExtResource( 117 ), ExtResource( 121 ), ExtResource( 128 ), ExtResource( 129 ), ExtResource( 122 ), ExtResource( 130 ), ExtResource( 131 ), ExtResource( 124 ), ExtResource( 132 ), ExtResource( 116 ), ExtResource( 49 ), ExtResource( 31 ), ExtResource( 58 ), ExtResource( 44 ), ExtResource( 42 ), ExtResource( 55 ), ExtResource( 36 ), ExtResource( 33 ), ExtResource( 45 ), ExtResource( 32 ), ExtResource( 50 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 43 ), ExtResource( 34 ), ExtResource( 59 ), ExtResource( 62 ), ExtResource( 54 ), ExtResource( 60 ), ExtResource( 37 ), ExtResource( 35 ), ExtResource( 51 ), ExtResource( 53 ), ExtResource( 52 ), ExtResource( 61 ), ExtResource( 63 ), ExtResource( 29 ), ExtResource( 38 ), ExtResource( 41 ), ExtResource( 30 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 48 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 95 ), ExtResource( 87 ), ExtResource( 110 ), ExtResource( 109 ), ExtResource( 91 ), ExtResource( 112 ), ExtResource( 94 ), ExtResource( 111 ), ExtResource( 97 ), ExtResource( 102 ), ExtResource( 100 ), ExtResource( 114 ), ExtResource( 92 ), ExtResource( 98 ), ExtResource( 84 ), ExtResource( 104 ), ExtResource( 85 ), ExtResource( 101 ), ExtResource( 105 ), ExtResource( 113 ), ExtResource( 96 ), ExtResource( 88 ), ExtResource( 106 ), ExtResource( 103 ), ExtResource( 93 ), ExtResource( 86 ), ExtResource( 99 ), ExtResource( 89 ), ExtResource( 107 ), ExtResource( 108 ), ExtResource( 90 ), ExtResource( 115 ), ExtResource( 81 ), ExtResource( 82 ), ExtResource( 83 ), ExtResource( 16 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 12 ), ExtResource( 15 ), ExtResource( 13 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
 [sub_resource type="BoxShape" id=12]
 extents = Vector3( 6.29587, 0.094464, 3.2068 )
 
@@ -51,6 +183,7 @@ extents = Vector3( 0.129244, 1, 0.222169 )
 
 [sub_resource type="Environment" id=15]
 background_sky = SubResource( 16 )
+background_color = Color( 1, 1, 1, 1 )
 background_energy = 0.0
 fog_enabled = true
 fog_color = Color( 0.407843, 0.407843, 0.407843, 1 )
@@ -65,7 +198,7 @@ fog_height_curve = 0.5
 [node name="Main" type="Spatial"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, -5.37888e-05, -0.000785672, 5.28908e-05, 0.999999, -0.00111048, 0.000785733, 0.00111044, 0.999999, -400.595, 2.66171, 7.02805 )
+transform = Transform( 1, -5.37888e-05, -0.000785672, 5.28908e-05, 0.999999, -0.00111048, 0.000785733, 0.00111044, 0.999999, 329.669, 2.66171, 123.915 )
 
 [node name="Floor" type="StaticBody" parent="."]
 transform = Transform( 400, 0, 0, 0, 1, 0, 0, 0, 150, -4.61804, -0.858871, 6.4393 )
@@ -472,6 +605,60 @@ shape = SubResource( 11 )
 
 [node name="church" parent="." instance=ExtResource( 3 )]
 transform = Transform( 2.22163, 0, 0.595284, 0, 2.3, 0, -0.595284, 0, 2.22163, 373.651, 0, 123.995 )
+script = ExtResource( 133 )
+
+[node name="Kuno" type="AnimatedSprite3D" parent="church"]
+transform = Transform( 0.869565, 0, 0, 0, 0.869565, 0, 0, 0, 0.434782, -0.00846863, 1.98393, 4.16739 )
+frames = SubResource( 17 )
+frame = 100
+playing = true
+
+[node name="lights" type="Spatial" parent="church"]
+transform = Transform( 0.419968, 0, -0.11253, 0, 0.434783, 0, 0.11253, 0, 0.419968, -142.968, 0, -94.1208 )
+
+[node name="OmniLight" type="OmniLight" parent="church/lights"]
+transform = Transform( 0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 369.837, 5.99278, 112.128 )
+light_color = Color( 0.835294, 0.0352941, 0.976471, 1 )
+omni_range = 1.52607
+
+[node name="OmniLight2" type="OmniLight" parent="church/lights"]
+transform = Transform( 0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 370.957, 5.99278, 111.644 )
+light_color = Color( 0.815686, 0.0352941, 0.976471, 1 )
+omni_range = 1.52607
+
+[node name="OmniLight3" type="OmniLight" parent="church/lights"]
+transform = Transform( 0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 370.65, 4.61843, 127.062 )
+light_color = Color( 0.835294, 0.0352941, 0.976471, 1 )
+omni_range = 1.52607
+
+[node name="OmniLight4" type="OmniLight" parent="church/lights"]
+transform = Transform( 0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 371.833, 5.54612, 132.839 )
+light_color = Color( 0.835294, 0.0352941, 0.976471, 1 )
+omni_range = 1.52607
+
+[node name="OmniLight5" type="OmniLight" parent="church/lights"]
+transform = Transform( 0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 376.275, 5.52652, 136.15 )
+light_color = Color( 0.835294, 0.0352941, 0.976471, 1 )
+omni_range = 1.52607
+
+[node name="OmniLight6" type="OmniLight" parent="church/lights"]
+transform = Transform( 0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 377.395, 5.52652, 135.667 )
+light_color = Color( 0.815686, 0.0352941, 0.976471, 1 )
+omni_range = 1.52607
+
+[node name="OmniLight7" type="OmniLight" parent="church/lights"]
+transform = Transform( 0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 379.421, 5.99278, 130.653 )
+light_color = Color( 0.835294, 0.0352941, 0.976471, 1 )
+omni_range = 1.52607
+
+[node name="OmniLight8" type="OmniLight" parent="church/lights"]
+transform = Transform( 0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 377.186, 5.52905, 122.951 )
+light_color = Color( 0.835294, 0.0352941, 0.976471, 1 )
+omni_range = 1.52607
+
+[node name="Timer" type="Timer" parent="church"]
+wait_time = 0.42
+autostart = true
 
 [node name="Roads" type="Spatial" parent="."]
 
@@ -1141,3 +1328,5 @@ transform = Transform( -3.0598e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.0598e-08, 358
 
 [node name="streetlight21" parent="Streetlight" instance=ExtResource( 9 )]
 transform = Transform( -3.0598e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.0598e-08, 396.345, 0.142575, -3.39389 )
+
+[connection signal="timeout" from="church/Timer" to="church" method="_on_Timer_timeout"]
