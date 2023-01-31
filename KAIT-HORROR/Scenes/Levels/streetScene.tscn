@@ -610,7 +610,7 @@ script = ExtResource( 133 )
 [node name="Kuno" type="AnimatedSprite3D" parent="church"]
 transform = Transform( 0.869565, 0, 0, 0, 0.869565, 0, 0, 0, 0.434782, -0.00846863, 1.98393, 4.16739 )
 frames = SubResource( 17 )
-frame = 100
+frame = 37
 playing = true
 
 [node name="lights" type="Spatial" parent="church"]

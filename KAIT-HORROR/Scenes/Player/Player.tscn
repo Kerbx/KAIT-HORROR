@@ -18,7 +18,7 @@ JUMP_SPEED = 15
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.931682, 0 )
 
 [node name="Camera" type="InterpolatedCamera" parent="KinematicBody/Spatial"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0232067, 0.593692, -0.137407 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0232067, 0.593692, -0.163455 )
 far = 250.0
 
 [node name="floppa" parent="KinematicBody" instance=ExtResource( 2 )]
