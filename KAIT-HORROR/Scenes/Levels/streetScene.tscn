@@ -1,12 +1,20 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Models/house/9house.glb" type="PackedScene" id=2]
 [ext_resource path="res://Models/church/church.glb" type="PackedScene" id=3]
 [ext_resource path="res://Models/panelka/panelka2.glb" type="PackedScene" id=4]
 [ext_resource path="res://Models/khruschevka/khrushchevka.glb" type="PackedScene" id=5]
+[ext_resource path="res://Models/road/road1.glb" type="PackedScene" id=6]
+[ext_resource path="res://Models/tree/tree1.glb" type="PackedScene" id=7]
+[ext_resource path="res://Textures/asphalt_02_diff_1k.jpg" type="Texture" id=8]
+[ext_resource path="res://Scenes/Objects/streetlight.tscn" type="PackedScene" id=9]
 
 [sub_resource type="CubeMesh" id=3]
+
+[sub_resource type="SpatialMaterial" id=14]
+albedo_texture = ExtResource( 8 )
+uv1_scale = Vector3( 400, 150, 1 )
 
 [sub_resource type="BoxShape" id=2]
 
@@ -30,10 +38,34 @@ extents = Vector3( 1.97755, 14.3347, 1 )
 [sub_resource type="BoxShape" id=10]
 extents = Vector3( 4.06346, 15.1438, 1.19859 )
 
+[sub_resource type="BoxShape" id=11]
+extents = Vector3( 2.37768, 2.98976, 6.46366 )
+
+[sub_resource type="BoxShape" id=12]
+extents = Vector3( 6.29587, 0.094464, 3.2068 )
+
+[sub_resource type="BoxShape" id=13]
+extents = Vector3( 0.129244, 1, 0.222169 )
+
+[sub_resource type="PanoramaSky" id=16]
+
+[sub_resource type="Environment" id=15]
+background_sky = SubResource( 16 )
+background_energy = 0.0
+fog_enabled = true
+fog_color = Color( 0.407843, 0.407843, 0.407843, 1 )
+fog_sun_color = Color( 1, 0.905882, 0.713726, 1 )
+fog_depth_curve = 1.7411
+fog_transmit_enabled = true
+fog_height_enabled = true
+fog_height_min = -2.0
+fog_height_max = 50.0
+fog_height_curve = 0.5
+
 [node name="Main" type="Spatial"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -400.595, 2.31195, -1.00787 )
+transform = Transform( 1, -5.37888e-05, -0.000785672, 5.28908e-05, 0.999999, -0.00111048, 0.000785733, 0.00111044, 0.999999, -400.595, 2.66171, 7.02805 )
 
 [node name="Floor" type="StaticBody" parent="."]
 transform = Transform( 400, 0, 0, 0, 1, 0, 0, 0, 150, -4.61804, -0.858871, 6.4393 )
@@ -41,6 +73,7 @@ transform = Transform( 400, 0, 0, 0, 1, 0, 0, 0, 150, -4.61804, -0.858871, 6.439
 [node name="Floor" type="MeshInstance" parent="Floor"]
 mesh = SubResource( 3 )
 skeleton = NodePath("../..")
+material/0 = SubResource( 14 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Floor"]
 shape = SubResource( 2 )
@@ -48,7 +81,7 @@ shape = SubResource( 2 )
 [node name="Houses" type="Spatial" parent="."]
 
 [node name="9house" parent="Houses" instance=ExtResource( 2 )]
-transform = Transform( -9.17939e-08, 0, -2.1, 0, 2.1, 0, 2.1, 0, -9.17939e-08, -321.729, -0.379329, -85.0895 )
+transform = Transform( -9.17939e-08, 0, -2.1, 0, 2.1, 0, 2.1, 0, -9.17939e-08, -321.729, -0.379329, -50.2037 )
 
 [node name="StaticBody" type="StaticBody" parent="Houses/9house"]
 
@@ -57,7 +90,7 @@ transform = Transform( 6.77756, 0, 2.79599e-08, 0, 18.748, 0, 2.79475e-08, 0, 7.
 shape = SubResource( 4 )
 
 [node name="9house2" parent="Houses" instance=ExtResource( 2 )]
-transform = Transform( -9.17939e-08, 0, -2.1, 0, 2.1, 0, 2.1, 0, -9.17939e-08, -273.384, -0.379329, -85.0895 )
+transform = Transform( -9.17939e-08, 0, -2.1, 0, 2.1, 0, 2.1, 0, -9.17939e-08, -273.384, -0.379329, -50.2037 )
 
 [node name="StaticBody" type="StaticBody" parent="Houses/9house2"]
 
@@ -117,9 +150,6 @@ shape = SubResource( 10 )
 [node name="LedgeShape5" type="CollisionShape" parent="Houses/panelka1/StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.44031, 12.6583, 10.2298 )
 shape = SubResource( 10 )
-
-[node name="khrushchevka" parent="Houses" instance=ExtResource( 5 )]
-transform = Transform( -4, 0, -6.9282, 0, 8, 0, 6.9282, 0, -4, -343.264, -43.9331, 112.45 )
 
 [node name="panelka2" parent="Houses" instance=ExtResource( 4 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -189.715, 0, 71.1404 )
@@ -280,5 +310,834 @@ shape = SubResource( 10 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.44031, 12.6583, 10.2298 )
 shape = SubResource( 10 )
 
+[node name="panelka5" parent="Houses" instance=ExtResource( 4 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 99.5814, 0, 58.4036 )
+
+[node name="StaticBody" type="StaticBody" parent="Houses/panelka5"]
+
+[node name="MainShape" type="CollisionShape" parent="Houses/panelka5/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 11.9561, 0, 0, 0, 1, 0, 13.1955, 5.68506 )
+shape = SubResource( 5 )
+
+[node name="EntranceRoofShape1" type="CollisionShape" parent="Houses/panelka5/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1597, 3.64496, -0.112666 )
+shape = SubResource( 6 )
+
+[node name="EntranceRoofShape2" type="CollisionShape" parent="Houses/panelka5/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1864, 3.64496, -0.112666 )
+shape = SubResource( 6 )
+
+[node name="EntranceFrontShape1" type="CollisionShape" parent="Houses/panelka5/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3233, 1.60641, -0.534915 )
+shape = SubResource( 7 )
+
+[node name="EntranceFrontShape2" type="CollisionShape" parent="Houses/panelka5/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0223, 1.60641, -0.534915 )
+shape = SubResource( 7 )
+
+[node name="EntranceSideShape1" type="CollisionShape" parent="Houses/panelka5/StaticBody"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12.5535, 1.60641, 0.35799 )
+shape = SubResource( 7 )
+
+[node name="EntranceSideShape2" type="CollisionShape" parent="Houses/panelka5/StaticBody"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.7947, 1.60641, 0.35799 )
+shape = SubResource( 7 )
+
+[node name="LedgeShape1" type="CollisionShape" parent="Houses/panelka5/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.633, 0.910515 )
+shape = SubResource( 8 )
+
+[node name="LedgeShape2" type="CollisionShape" parent="Houses/panelka5/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.2559, 13.0763, 0.941357 )
+shape = SubResource( 9 )
+
+[node name="LedgeShape3" type="CollisionShape" parent="Houses/panelka5/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.2567, 13.0763, 0.941357 )
+shape = SubResource( 9 )
+
+[node name="LedgeShape4" type="CollisionShape" parent="Houses/panelka5/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.44031, 12.6583, 10.2298 )
+shape = SubResource( 10 )
+
+[node name="LedgeShape5" type="CollisionShape" parent="Houses/panelka5/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.44031, 12.6583, 10.2298 )
+shape = SubResource( 10 )
+
+[node name="panelka6" parent="Houses" instance=ExtResource( 4 )]
+transform = Transform( 1.73205, 0, 1, 0, 2, 0, -1, 0, 1.73205, 341.705, 0, 70.0322 )
+
+[node name="StaticBody" type="StaticBody" parent="Houses/panelka6"]
+
+[node name="MainShape" type="CollisionShape" parent="Houses/panelka6/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 11.9561, 0, 0, 0, 1, 0, 13.1955, 5.68506 )
+shape = SubResource( 5 )
+
+[node name="EntranceRoofShape1" type="CollisionShape" parent="Houses/panelka6/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1597, 3.64496, -0.112666 )
+shape = SubResource( 6 )
+
+[node name="EntranceRoofShape2" type="CollisionShape" parent="Houses/panelka6/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1864, 3.64496, -0.112666 )
+shape = SubResource( 6 )
+
+[node name="EntranceFrontShape1" type="CollisionShape" parent="Houses/panelka6/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3233, 1.60641, -0.534915 )
+shape = SubResource( 7 )
+
+[node name="EntranceFrontShape2" type="CollisionShape" parent="Houses/panelka6/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0223, 1.60641, -0.534915 )
+shape = SubResource( 7 )
+
+[node name="EntranceSideShape1" type="CollisionShape" parent="Houses/panelka6/StaticBody"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12.5535, 1.60641, 0.35799 )
+shape = SubResource( 7 )
+
+[node name="EntranceSideShape2" type="CollisionShape" parent="Houses/panelka6/StaticBody"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.7947, 1.60641, 0.35799 )
+shape = SubResource( 7 )
+
+[node name="LedgeShape1" type="CollisionShape" parent="Houses/panelka6/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.633, 0.910515 )
+shape = SubResource( 8 )
+
+[node name="LedgeShape2" type="CollisionShape" parent="Houses/panelka6/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.2559, 13.0763, 0.941357 )
+shape = SubResource( 9 )
+
+[node name="LedgeShape3" type="CollisionShape" parent="Houses/panelka6/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.2567, 13.0763, 0.941357 )
+shape = SubResource( 9 )
+
+[node name="LedgeShape4" type="CollisionShape" parent="Houses/panelka6/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.44031, 12.6583, 10.2298 )
+shape = SubResource( 10 )
+
+[node name="LedgeShape5" type="CollisionShape" parent="Houses/panelka6/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.44031, 12.6583, 10.2298 )
+shape = SubResource( 10 )
+
+[node name="khrushchevka" parent="Houses" instance=ExtResource( 5 )]
+transform = Transform( -4, 0, -6.9282, 0, 8, 0, 6.9282, 0, -4, -343.264, -43.9331, 112.45 )
+
+[node name="StaticBody" type="StaticBody" parent="Houses/khrushchevka"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Houses/khrushchevka/StaticBody"]
+transform = Transform( 0.999999, 0, 2.55795e-13, 0, 1, 0, -2.55795e-13, 0, 0.999999, -0.00667477, 8.3186, 0.806732 )
+shape = SubResource( 11 )
+
+[node name="khrushchevka2" parent="Houses" instance=ExtResource( 5 )]
+transform = Transform( 9.69548e-07, 0, 8, 0, 8, 0, -8, 0, 9.69548e-07, -177.07, -43.9331, -48.4967 )
+
+[node name="StaticBody" type="StaticBody" parent="Houses/khrushchevka2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Houses/khrushchevka2/StaticBody"]
+transform = Transform( 0.999999, 0, 2.55795e-13, 0, 1, 0, -2.55795e-13, 0, 0.999999, -0.00667477, 8.3186, 0.806732 )
+shape = SubResource( 11 )
+
+[node name="khrushchevka3" parent="Houses" instance=ExtResource( 5 )]
+transform = Transform( 9.69548e-07, 0, 8, 0, 8, 0, -8, 0, 9.69548e-07, -49.9858, -43.9331, -48.4967 )
+
+[node name="StaticBody" type="StaticBody" parent="Houses/khrushchevka3"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Houses/khrushchevka3/StaticBody"]
+transform = Transform( 0.999999, 0, 2.55795e-13, 0, 1, 0, -2.55795e-13, 0, 0.999999, -0.00667477, 8.3186, 0.806732 )
+shape = SubResource( 11 )
+
+[node name="khrushchevka4" parent="Houses" instance=ExtResource( 5 )]
+transform = Transform( 9.69548e-07, 0, 8, 0, 8, 0, -8, 0, 9.69548e-07, 79.1746, -43.9331, -48.4967 )
+
+[node name="StaticBody" type="StaticBody" parent="Houses/khrushchevka4"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Houses/khrushchevka4/StaticBody"]
+transform = Transform( 0.999999, 0, 2.55795e-13, 0, 1, 0, -2.55795e-13, 0, 0.999999, -0.00667477, 8.3186, 0.806732 )
+shape = SubResource( 11 )
+
+[node name="khrushchevka5" parent="Houses" instance=ExtResource( 5 )]
+transform = Transform( 9.69548e-07, 0, 8, 0, 8, 0, -8, 0, 9.69548e-07, 205.843, -43.9331, -48.4967 )
+
+[node name="StaticBody" type="StaticBody" parent="Houses/khrushchevka5"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Houses/khrushchevka5/StaticBody"]
+transform = Transform( 0.999999, 0, 2.55795e-13, 0, 1, 0, -2.55795e-13, 0, 0.999999, -0.00667477, 8.3186, 0.806732 )
+shape = SubResource( 11 )
+
+[node name="khrushchevka6" parent="Houses" instance=ExtResource( 5 )]
+transform = Transform( 9.69548e-07, 0, 8, 0, 8, 0, -8, 0, 9.69548e-07, 334.173, -43.9331, -48.4967 )
+
+[node name="StaticBody" type="StaticBody" parent="Houses/khrushchevka6"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Houses/khrushchevka6/StaticBody"]
+transform = Transform( 0.999999, 0, 2.55795e-13, 0, 1, 0, -2.55795e-13, 0, 0.999999, -0.00667477, 8.3186, 0.806732 )
+shape = SubResource( 11 )
+
 [node name="church" parent="." instance=ExtResource( 3 )]
-transform = Transform( 2.3, 0, 0, 0, 2.3, 0, 0, 0, 2.3, -273.2, 0, -99.4401 )
+transform = Transform( 2.22163, 0, 0.595284, 0, 2.3, 0, -0.595284, 0, 2.22163, 373.651, 0, 123.995 )
+
+[node name="Roads" type="Spatial" parent="."]
+
+[node name="road1" parent="Roads" instance=ExtResource( 6 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -385.158, -0.141958, -2.45117 )
+
+[node name="StaticBody" type="StaticBody" parent="Roads/road1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Roads/road1/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0402832, 0.0137161, 3.46466 )
+shape = SubResource( 12 )
+
+[node name="road2" parent="Roads" instance=ExtResource( 6 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -347.389, -0.141958, -2.45117 )
+
+[node name="StaticBody" type="StaticBody" parent="Roads/road2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Roads/road2/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0402832, 0.0137161, 3.46466 )
+shape = SubResource( 12 )
+
+[node name="road3" parent="Roads" instance=ExtResource( 6 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -309.802, -0.141958, -2.45117 )
+
+[node name="StaticBody" type="StaticBody" parent="Roads/road3"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Roads/road3/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0402832, 0.0137161, 3.46466 )
+shape = SubResource( 12 )
+
+[node name="road4" parent="Roads" instance=ExtResource( 6 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -272.215, -0.141958, -2.45117 )
+
+[node name="StaticBody" type="StaticBody" parent="Roads/road4"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Roads/road4/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0402832, 0.0137161, 3.46466 )
+shape = SubResource( 12 )
+
+[node name="road5" parent="Roads" instance=ExtResource( 6 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -235.034, -0.141958, -2.45117 )
+
+[node name="StaticBody" type="StaticBody" parent="Roads/road5"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Roads/road5/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0402832, 0.0137161, 3.46466 )
+shape = SubResource( 12 )
+
+[node name="road6" parent="Roads" instance=ExtResource( 6 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -197.9, -0.141958, -2.45117 )
+
+[node name="StaticBody" type="StaticBody" parent="Roads/road6"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Roads/road6/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0402832, 0.0137161, 3.46466 )
+shape = SubResource( 12 )
+
+[node name="road7" parent="Roads" instance=ExtResource( 6 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -160.131, -0.141958, -2.45117 )
+
+[node name="StaticBody" type="StaticBody" parent="Roads/road7"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Roads/road7/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0402832, 0.0137161, 3.46466 )
+shape = SubResource( 12 )
+
+[node name="road8" parent="Roads" instance=ExtResource( 6 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -122.544, -0.141958, -2.45117 )
+
+[node name="StaticBody" type="StaticBody" parent="Roads/road8"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Roads/road8/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0402832, 0.0137161, 3.46466 )
+shape = SubResource( 12 )
+
+[node name="road9" parent="Roads" instance=ExtResource( 6 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -84.9573, -0.141958, -2.45117 )
+
+[node name="StaticBody" type="StaticBody" parent="Roads/road9"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Roads/road9/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0402832, 0.0137161, 3.46466 )
+shape = SubResource( 12 )
+
+[node name="road10" parent="Roads" instance=ExtResource( 6 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -47.7764, -0.141958, -2.45117 )
+
+[node name="StaticBody" type="StaticBody" parent="Roads/road10"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Roads/road10/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0402832, 0.0137161, 3.46466 )
+shape = SubResource( 12 )
+
+[node name="road11" parent="Roads" instance=ExtResource( 6 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -11.1826, -0.141958, -2.45117 )
+
+[node name="StaticBody" type="StaticBody" parent="Roads/road11"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Roads/road11/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0402832, 0.0137161, 3.46466 )
+shape = SubResource( 12 )
+
+[node name="road12" parent="Roads" instance=ExtResource( 6 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 26.5863, -0.141958, -2.45117 )
+
+[node name="StaticBody" type="StaticBody" parent="Roads/road12"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Roads/road12/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0402832, 0.0137161, 3.46466 )
+shape = SubResource( 12 )
+
+[node name="road13" parent="Roads" instance=ExtResource( 6 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 64.1732, -0.141958, -2.45117 )
+
+[node name="StaticBody" type="StaticBody" parent="Roads/road13"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Roads/road13/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0402832, 0.0137161, 3.46466 )
+shape = SubResource( 12 )
+
+[node name="road14" parent="Roads" instance=ExtResource( 6 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 101.76, -0.141958, -2.45117 )
+
+[node name="StaticBody" type="StaticBody" parent="Roads/road14"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Roads/road14/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0402832, 0.0137161, 3.46466 )
+shape = SubResource( 12 )
+
+[node name="road15" parent="Roads" instance=ExtResource( 6 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 138.941, -0.141958, -2.45117 )
+
+[node name="StaticBody" type="StaticBody" parent="Roads/road15"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Roads/road15/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0402832, 0.0137161, 3.46466 )
+shape = SubResource( 12 )
+
+[node name="road16" parent="Roads" instance=ExtResource( 6 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 176.075, -0.141958, -2.45117 )
+
+[node name="StaticBody" type="StaticBody" parent="Roads/road16"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Roads/road16/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0402832, 0.0137161, 3.46466 )
+shape = SubResource( 12 )
+
+[node name="road17" parent="Roads" instance=ExtResource( 6 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 213.844, -0.141958, -2.45117 )
+
+[node name="StaticBody" type="StaticBody" parent="Roads/road17"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Roads/road17/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0402832, 0.0137161, 3.46466 )
+shape = SubResource( 12 )
+
+[node name="road18" parent="Roads" instance=ExtResource( 6 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 251.431, -0.141958, -2.45117 )
+
+[node name="StaticBody" type="StaticBody" parent="Roads/road18"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Roads/road18/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0402832, 0.0137161, 3.46466 )
+shape = SubResource( 12 )
+
+[node name="road19" parent="Roads" instance=ExtResource( 6 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 289.018, -0.141958, -2.45117 )
+
+[node name="StaticBody" type="StaticBody" parent="Roads/road19"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Roads/road19/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0402832, 0.0137161, 3.46466 )
+shape = SubResource( 12 )
+
+[node name="road20" parent="Roads" instance=ExtResource( 6 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 326.199, -0.141958, -2.45117 )
+
+[node name="StaticBody" type="StaticBody" parent="Roads/road20"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Roads/road20/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0402832, 0.0137161, 3.46466 )
+shape = SubResource( 12 )
+
+[node name="road21" parent="Roads" instance=ExtResource( 6 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 362.792, -0.141958, -2.45117 )
+
+[node name="StaticBody" type="StaticBody" parent="Roads/road21"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Roads/road21/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0402832, 0.0137161, 3.46466 )
+shape = SubResource( 12 )
+
+[node name="road22" parent="Roads" instance=ExtResource( 6 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 398.062, -0.141958, -2.45117 )
+
+[node name="StaticBody" type="StaticBody" parent="Roads/road22"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Roads/road22/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0402832, 0.0137161, 3.46466 )
+shape = SubResource( 12 )
+
+[node name="Trees" type="Spatial" parent="."]
+
+[node name="tree1" parent="Trees" instance=ExtResource( 7 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, -398.925, 7.60136, -7.56184 )
+
+[node name="StaticBody" type="StaticBody" parent="Trees/tree1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Trees/tree1/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.557716, -0.262357, 6.21955 )
+shape = SubResource( 13 )
+
+[node name="tree2" parent="Trees" instance=ExtResource( 7 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, -361.913, 7.60136, -7.56184 )
+
+[node name="StaticBody" type="StaticBody" parent="Trees/tree2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Trees/tree2/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.557716, -0.262357, 6.21955 )
+shape = SubResource( 13 )
+
+[node name="tree3" parent="Trees" instance=ExtResource( 7 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, -322.148, 7.60136, -7.56184 )
+
+[node name="StaticBody" type="StaticBody" parent="Trees/tree3"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Trees/tree3/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.557716, -0.262357, 6.21955 )
+shape = SubResource( 13 )
+
+[node name="tree4" parent="Trees" instance=ExtResource( 7 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, -284.831, 7.60136, -7.56184 )
+
+[node name="StaticBody" type="StaticBody" parent="Trees/tree4"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Trees/tree4/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.557716, -0.262357, 6.21955 )
+shape = SubResource( 13 )
+
+[node name="tree5" parent="Trees" instance=ExtResource( 7 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, -247.819, 7.60136, -7.56184 )
+
+[node name="StaticBody" type="StaticBody" parent="Trees/tree5"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Trees/tree5/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.557716, -0.262357, 6.21955 )
+shape = SubResource( 13 )
+
+[node name="tree6" parent="Trees" instance=ExtResource( 7 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, -208.054, 7.60136, -7.56184 )
+
+[node name="StaticBody" type="StaticBody" parent="Trees/tree6"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Trees/tree6/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.557716, -0.262357, 6.21955 )
+shape = SubResource( 13 )
+
+[node name="tree7" parent="Trees" instance=ExtResource( 7 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, -173.489, 7.60136, -7.56184 )
+
+[node name="StaticBody" type="StaticBody" parent="Trees/tree7"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Trees/tree7/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.557716, -0.262357, 6.21955 )
+shape = SubResource( 13 )
+
+[node name="tree8" parent="Trees" instance=ExtResource( 7 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, -136.477, 7.60136, -7.56184 )
+
+[node name="StaticBody" type="StaticBody" parent="Trees/tree8"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Trees/tree8/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.557716, -0.262357, 6.21955 )
+shape = SubResource( 13 )
+
+[node name="tree9" parent="Trees" instance=ExtResource( 7 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, -96.7127, 7.60136, -7.56184 )
+
+[node name="StaticBody" type="StaticBody" parent="Trees/tree9"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Trees/tree9/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.557716, -0.262357, 6.21955 )
+shape = SubResource( 13 )
+
+[node name="tree10" parent="Trees" instance=ExtResource( 7 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, -59.395, 7.60136, -7.56184 )
+
+[node name="StaticBody" type="StaticBody" parent="Trees/tree10"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Trees/tree10/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.557716, -0.262357, 6.21955 )
+shape = SubResource( 13 )
+
+[node name="tree11" parent="Trees" instance=ExtResource( 7 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, -22.3832, 7.60136, -7.56184 )
+
+[node name="StaticBody" type="StaticBody" parent="Trees/tree11"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Trees/tree11/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.557716, -0.262357, 6.21955 )
+shape = SubResource( 13 )
+
+[node name="tree12" parent="Trees" instance=ExtResource( 7 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 17.3816, 7.60136, -7.56184 )
+
+[node name="StaticBody" type="StaticBody" parent="Trees/tree12"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Trees/tree12/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.557716, -0.262357, 6.21955 )
+shape = SubResource( 13 )
+
+[node name="tree13" parent="Trees" instance=ExtResource( 7 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 52.4505, 7.60136, -7.56184 )
+
+[node name="StaticBody" type="StaticBody" parent="Trees/tree13"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Trees/tree13/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.557716, -0.262357, 6.21955 )
+shape = SubResource( 13 )
+
+[node name="tree14" parent="Trees" instance=ExtResource( 7 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 89.4623, 7.60136, -7.56184 )
+
+[node name="StaticBody" type="StaticBody" parent="Trees/tree14"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Trees/tree14/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.557716, -0.262357, 6.21955 )
+shape = SubResource( 13 )
+
+[node name="tree15" parent="Trees" instance=ExtResource( 7 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 129.227, 7.60136, -7.56184 )
+
+[node name="StaticBody" type="StaticBody" parent="Trees/tree15"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Trees/tree15/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.557716, -0.262357, 6.21955 )
+shape = SubResource( 13 )
+
+[node name="tree16" parent="Trees" instance=ExtResource( 7 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 166.545, 7.60136, -7.56184 )
+
+[node name="StaticBody" type="StaticBody" parent="Trees/tree16"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Trees/tree16/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.557716, -0.262357, 6.21955 )
+shape = SubResource( 13 )
+
+[node name="tree17" parent="Trees" instance=ExtResource( 7 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 203.557, 7.60136, -7.56184 )
+
+[node name="StaticBody" type="StaticBody" parent="Trees/tree17"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Trees/tree17/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.557716, -0.262357, 6.21955 )
+shape = SubResource( 13 )
+
+[node name="tree18" parent="Trees" instance=ExtResource( 7 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 243.321, 7.60136, -7.56184 )
+
+[node name="StaticBody" type="StaticBody" parent="Trees/tree18"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Trees/tree18/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.557716, -0.262357, 6.21955 )
+shape = SubResource( 13 )
+
+[node name="tree19" parent="Trees" instance=ExtResource( 7 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 277.886, 7.60136, -7.56184 )
+
+[node name="StaticBody" type="StaticBody" parent="Trees/tree19"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Trees/tree19/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.557716, -0.262357, 6.21955 )
+shape = SubResource( 13 )
+
+[node name="tree20" parent="Trees" instance=ExtResource( 7 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 314.898, 7.60136, -7.56184 )
+
+[node name="StaticBody" type="StaticBody" parent="Trees/tree20"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Trees/tree20/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.557716, -0.262357, 6.21955 )
+shape = SubResource( 13 )
+
+[node name="tree21" parent="Trees" instance=ExtResource( 7 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 354.663, 7.60136, -7.56184 )
+
+[node name="StaticBody" type="StaticBody" parent="Trees/tree21"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Trees/tree21/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.557716, -0.262357, 6.21955 )
+shape = SubResource( 13 )
+
+[node name="tree22" parent="Trees" instance=ExtResource( 7 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 391.98, 7.60136, -7.56184 )
+
+[node name="StaticBody" type="StaticBody" parent="Trees/tree22"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Trees/tree22/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.557716, -0.262357, 6.21955 )
+shape = SubResource( 13 )
+
+[node name="tree23" parent="Trees" instance=ExtResource( 7 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, -398.925, 7.60136, -49.9264 )
+
+[node name="StaticBody" type="StaticBody" parent="Trees/tree23"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Trees/tree23/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.557716, -0.262357, 6.21955 )
+shape = SubResource( 13 )
+
+[node name="tree24" parent="Trees" instance=ExtResource( 7 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, -361.913, 7.60136, -49.9264 )
+
+[node name="StaticBody" type="StaticBody" parent="Trees/tree24"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Trees/tree24/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.557716, -0.262357, 6.21955 )
+shape = SubResource( 13 )
+
+[node name="tree25" parent="Trees" instance=ExtResource( 7 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, -322.148, 7.60136, -49.9264 )
+
+[node name="StaticBody" type="StaticBody" parent="Trees/tree25"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Trees/tree25/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.557716, -0.262357, 6.21955 )
+shape = SubResource( 13 )
+
+[node name="tree26" parent="Trees" instance=ExtResource( 7 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, -284.831, 7.60136, -49.9264 )
+
+[node name="StaticBody" type="StaticBody" parent="Trees/tree26"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Trees/tree26/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.557716, -0.262357, 6.21955 )
+shape = SubResource( 13 )
+
+[node name="tree27" parent="Trees" instance=ExtResource( 7 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, -247.819, 7.60136, -49.9264 )
+
+[node name="StaticBody" type="StaticBody" parent="Trees/tree27"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Trees/tree27/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.557716, -0.262357, 6.21955 )
+shape = SubResource( 13 )
+
+[node name="tree28" parent="Trees" instance=ExtResource( 7 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, -208.054, 7.60136, -49.9264 )
+
+[node name="StaticBody" type="StaticBody" parent="Trees/tree28"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Trees/tree28/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.557716, -0.262357, 6.21955 )
+shape = SubResource( 13 )
+
+[node name="tree29" parent="Trees" instance=ExtResource( 7 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, -173.489, 7.60136, -49.9264 )
+
+[node name="StaticBody" type="StaticBody" parent="Trees/tree29"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Trees/tree29/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.557716, -0.262357, 6.21955 )
+shape = SubResource( 13 )
+
+[node name="tree30" parent="Trees" instance=ExtResource( 7 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, -136.477, 7.60136, -49.9264 )
+
+[node name="StaticBody" type="StaticBody" parent="Trees/tree30"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Trees/tree30/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.557716, -0.262357, 6.21955 )
+shape = SubResource( 13 )
+
+[node name="tree31" parent="Trees" instance=ExtResource( 7 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, -96.7127, 7.60136, -49.9264 )
+
+[node name="StaticBody" type="StaticBody" parent="Trees/tree31"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Trees/tree31/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.557716, -0.262357, 6.21955 )
+shape = SubResource( 13 )
+
+[node name="tree32" parent="Trees" instance=ExtResource( 7 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, -59.395, 7.60136, -49.9264 )
+
+[node name="StaticBody" type="StaticBody" parent="Trees/tree32"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Trees/tree32/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.557716, -0.262357, 6.21955 )
+shape = SubResource( 13 )
+
+[node name="tree33" parent="Trees" instance=ExtResource( 7 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, -22.3832, 7.60136, -49.9264 )
+
+[node name="StaticBody" type="StaticBody" parent="Trees/tree33"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Trees/tree33/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.557716, -0.262357, 6.21955 )
+shape = SubResource( 13 )
+
+[node name="tree34" parent="Trees" instance=ExtResource( 7 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 17.3816, 7.60136, -49.9264 )
+
+[node name="StaticBody" type="StaticBody" parent="Trees/tree34"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Trees/tree34/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.557716, -0.262357, 6.21955 )
+shape = SubResource( 13 )
+
+[node name="tree35" parent="Trees" instance=ExtResource( 7 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 52.4505, 7.60136, -49.9264 )
+
+[node name="StaticBody" type="StaticBody" parent="Trees/tree35"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Trees/tree35/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.557716, -0.262357, 6.21955 )
+shape = SubResource( 13 )
+
+[node name="tree36" parent="Trees" instance=ExtResource( 7 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 89.4623, 7.60136, -49.9264 )
+
+[node name="StaticBody" type="StaticBody" parent="Trees/tree36"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Trees/tree36/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.557716, -0.262357, 6.21955 )
+shape = SubResource( 13 )
+
+[node name="tree37" parent="Trees" instance=ExtResource( 7 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 129.227, 7.60136, -49.9264 )
+
+[node name="StaticBody" type="StaticBody" parent="Trees/tree37"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Trees/tree37/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.557716, -0.262357, 6.21955 )
+shape = SubResource( 13 )
+
+[node name="tree38" parent="Trees" instance=ExtResource( 7 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 166.545, 7.60136, -49.9264 )
+
+[node name="StaticBody" type="StaticBody" parent="Trees/tree38"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Trees/tree38/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.557716, -0.262357, 6.21955 )
+shape = SubResource( 13 )
+
+[node name="tree39" parent="Trees" instance=ExtResource( 7 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 203.557, 7.60136, -49.9264 )
+
+[node name="StaticBody" type="StaticBody" parent="Trees/tree39"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Trees/tree39/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.557716, -0.262357, 6.21955 )
+shape = SubResource( 13 )
+
+[node name="tree40" parent="Trees" instance=ExtResource( 7 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 243.321, 7.60136, -49.9264 )
+
+[node name="StaticBody" type="StaticBody" parent="Trees/tree40"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Trees/tree40/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.557716, -0.262357, 6.21955 )
+shape = SubResource( 13 )
+
+[node name="tree41" parent="Trees" instance=ExtResource( 7 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 277.886, 7.60136, -49.9264 )
+
+[node name="StaticBody" type="StaticBody" parent="Trees/tree41"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Trees/tree41/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.557716, -0.262357, 6.21955 )
+shape = SubResource( 13 )
+
+[node name="tree42" parent="Trees" instance=ExtResource( 7 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 314.898, 7.60136, -49.9264 )
+
+[node name="StaticBody" type="StaticBody" parent="Trees/tree42"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Trees/tree42/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.557716, -0.262357, 6.21955 )
+shape = SubResource( 13 )
+
+[node name="tree43" parent="Trees" instance=ExtResource( 7 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 354.663, 7.60136, -49.9264 )
+
+[node name="StaticBody" type="StaticBody" parent="Trees/tree43"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Trees/tree43/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.557716, -0.262357, 6.21955 )
+shape = SubResource( 13 )
+
+[node name="tree44" parent="Trees" instance=ExtResource( 7 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 391.98, 7.60136, -49.9264 )
+
+[node name="StaticBody" type="StaticBody" parent="Trees/tree44"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Trees/tree44/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.557716, -0.262357, 6.21955 )
+shape = SubResource( 13 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 15 )
+
+[node name="Streetlight" type="Spatial" parent="."]
+
+[node name="streetlight1" parent="Streetlight" instance=ExtResource( 9 )]
+transform = Transform( -3.0598e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.0598e-08, -400.502, 0.142575, -3.39389 )
+
+[node name="streetlight2" parent="Streetlight" instance=ExtResource( 9 )]
+transform = Transform( -3.0598e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.0598e-08, -362.19, 0.142575, -3.39389 )
+
+[node name="streetlight" parent="Streetlight" instance=ExtResource( 9 )]
+transform = Transform( -3.0598e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.0598e-08, -323.137, 0.142575, -3.39389 )
+
+[node name="streetlight3" parent="Streetlight" instance=ExtResource( 9 )]
+transform = Transform( -3.0598e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.0598e-08, -285.824, 0.142575, -3.39389 )
+
+[node name="streetlight4" parent="Streetlight" instance=ExtResource( 9 )]
+transform = Transform( -3.0598e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.0598e-08, -246.197, 0.142575, -3.39389 )
+
+[node name="streetlight5" parent="Streetlight" instance=ExtResource( 9 )]
+transform = Transform( -3.0598e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.0598e-08, -207.885, 0.142575, -3.39389 )
+
+[node name="streetlight6" parent="Streetlight" instance=ExtResource( 9 )]
+transform = Transform( -3.0598e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.0598e-08, -168.832, 0.142575, -3.39389 )
+
+[node name="streetlight7" parent="Streetlight" instance=ExtResource( 9 )]
+transform = Transform( -3.0598e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.0598e-08, -131.519, 0.142575, -3.39389 )
+
+[node name="streetlight8" parent="Streetlight" instance=ExtResource( 9 )]
+transform = Transform( -3.0598e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.0598e-08, -94.9988, 0.142575, -3.39389 )
+
+[node name="streetlight9" parent="Streetlight" instance=ExtResource( 9 )]
+transform = Transform( -3.0598e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.0598e-08, -56.6868, 0.142575, -3.39389 )
+
+[node name="streetlight10" parent="Streetlight" instance=ExtResource( 9 )]
+transform = Transform( -3.0598e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.0598e-08, -17.6336, 0.142575, -3.39389 )
+
+[node name="streetlight11" parent="Streetlight" instance=ExtResource( 9 )]
+transform = Transform( -3.0598e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.0598e-08, 19.6791, 0.142575, -3.39389 )
+
+[node name="streetlight12" parent="Streetlight" instance=ExtResource( 9 )]
+transform = Transform( -3.0598e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.0598e-08, 59.3069, 0.142575, -3.39389 )
+
+[node name="streetlight13" parent="Streetlight" instance=ExtResource( 9 )]
+transform = Transform( -3.0598e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.0598e-08, 97.6188, 0.142575, -3.39389 )
+
+[node name="streetlight14" parent="Streetlight" instance=ExtResource( 9 )]
+transform = Transform( -3.0598e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.0598e-08, 136.672, 0.142575, -3.39389 )
+
+[node name="streetlight15" parent="Streetlight" instance=ExtResource( 9 )]
+transform = Transform( -3.0598e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.0598e-08, 173.985, 0.142575, -3.39389 )
+
+[node name="streetlight16" parent="Streetlight" instance=ExtResource( 9 )]
+transform = Transform( -3.0598e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.0598e-08, 203.727, 0.142575, -3.39389 )
+
+[node name="streetlight17" parent="Streetlight" instance=ExtResource( 9 )]
+transform = Transform( -3.0598e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.0598e-08, 242.039, 0.142575, -3.39389 )
+
+[node name="streetlight18" parent="Streetlight" instance=ExtResource( 9 )]
+transform = Transform( -3.0598e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.0598e-08, 281.093, 0.142575, -3.39389 )
+
+[node name="streetlight19" parent="Streetlight" instance=ExtResource( 9 )]
+transform = Transform( -3.0598e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.0598e-08, 318.405, 0.142575, -3.39389 )
+
+[node name="streetlight20" parent="Streetlight" instance=ExtResource( 9 )]
+transform = Transform( -3.0598e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.0598e-08, 358.033, 0.142575, -3.39389 )
+
+[node name="streetlight21" parent="Streetlight" instance=ExtResource( 9 )]
+transform = Transform( -3.0598e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.0598e-08, 396.345, 0.142575, -3.39389 )

@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Models/streetlight/streetlight.glb" type="PackedScene" id=1]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.565287, 10.5657, 0.551222 )
+
+[node name="streetlight" instance=ExtResource( 1 )]
+transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0 )
+
+[node name="SpotLight" type="SpotLight" parent="Sketchfab_model/ec5bd02792994f1b812cb868e1a02066fbx/RootNode" index="2"]
+transform = Transform( 56.1652, -2.32579e-06, -2.95726, 2.95726, -2.58432e-06, 56.1652, -2.45846e-06, -56.243, -2.45846e-06, 274.796, 1106.33, -2.39275e-13 )
+light_color = Color( 1, 0.772549, 0, 1 )
+spot_range = 32.6958
+spot_attenuation = 0.554785
+spot_angle = 43.6566
+spot_angle_attenuation = 0.574349
+
+[node name="StaticBody" type="StaticBody" parent="." index="1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.3812, 0 )
+shape = SubResource( 1 )

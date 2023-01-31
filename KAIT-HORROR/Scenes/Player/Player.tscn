@@ -11,6 +11,7 @@ extents = Vector3( 1, 1, 2.12697 )
 [node name="KinematicBody" type="KinematicBody" parent="."]
 script = ExtResource( 1 )
 GRAVITY = -40
+SPEED = 450
 JUMP_SPEED = 15
 
 [node name="Spatial" type="Spatial" parent="KinematicBody"]
@@ -18,6 +19,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.931682, 0 )
 
 [node name="Camera" type="InterpolatedCamera" parent="KinematicBody/Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0232067, 0.593692, -0.137407 )
+far = 250.0
 
 [node name="floppa" parent="KinematicBody" instance=ExtResource( 2 )]
 transform = Transform( -2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 0, -2.09447, 0.209448 )
