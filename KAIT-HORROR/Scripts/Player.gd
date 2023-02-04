@@ -12,11 +12,15 @@ var velocity = Vector3()
 var rotationX = 0
 var rotationY = 0
 
+var flashlight
+
 var animation
 
 
 func _ready():
 	animation = $floppa.get_child(2)
+	flashlight = $Spatial/Camera/flashlight
+	flashlight.set("light_energy", 0)
 
 
 func _physics_process(delta):
@@ -24,6 +28,13 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().quit()
+	
+	if Input.is_action_just_pressed("lightOnOff"):
+		if flashlight.get("light_energy"):
+			flashlight.set("light_energy", 0)
+		else:
+			flashlight.set("light_energy", 2)
+		
 	
 	# bruh, idk why this run animation called like this. seems in blender all's ok.
 	if Input.is_action_pressed("move_forward"):

@@ -21,6 +21,15 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.931682, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0232067, 0.593692, -0.163455 )
 far = 250.0
 
+[node name="flashlight" type="SpotLight" parent="KinematicBody/Spatial/Camera"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.429654, -0.947342, 0.163455 )
+light_energy = 3.055
+light_indirect_energy = 4.027
+spot_range = 12.507
+spot_attenuation = 0.840898
+spot_angle = 34.09
+spot_angle_attenuation = 0.277392
+
 [node name="floppa" parent="KinematicBody" instance=ExtResource( 2 )]
 transform = Transform( -2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 0, -2.09447, 0.209448 )
 
