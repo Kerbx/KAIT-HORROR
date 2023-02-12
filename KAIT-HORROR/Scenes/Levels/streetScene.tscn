@@ -1,4 +1,4 @@
-[gd_scene load_steps=151 format=2]
+[gd_scene load_steps=153 format=2]
 
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Models/house/9house.glb" type="PackedScene" id=2]
@@ -134,6 +134,8 @@
 [ext_resource path="res://Media/Kuno/frame_044_delay-0.1s.png" type="Texture" id=132]
 [ext_resource path="res://Models/church/church.gd" type="Script" id=133]
 [ext_resource path="res://Media/Music/Protorave - Disco Elysium OST.mp3" type="AudioStream" id=134]
+[ext_resource path="res://Models/mur/mur.glb" type="PackedScene" id=135]
+[ext_resource path="res://Models/road/road2.glb" type="PackedScene" id=136]
 
 [sub_resource type="CubeMesh" id=3]
 
@@ -186,7 +188,6 @@ extents = Vector3( 0.129244, 1, 0.222169 )
 background_sky = SubResource( 16 )
 background_color = Color( 1, 1, 1, 1 )
 background_energy = 0.0
-fog_enabled = true
 fog_color = Color( 0.258824, 0.258824, 0.258824, 1 )
 fog_sun_color = Color( 1, 0.905882, 0.713726, 1 )
 fog_depth_curve = 1.46409
@@ -198,8 +199,11 @@ fog_height_curve = 0.5
 
 [node name="Main" type="Spatial"]
 
+[node name="mur" parent="." instance=ExtResource( 135 )]
+transform = Transform( 0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -377.752, 0.14277, -1.7623 )
+
 [node name="Player" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, -5.37888e-05, -0.000785672, 5.28908e-05, 0.999999, -0.00111048, 0.000785733, 0.00111044, 0.999999, 238.213, 2.66171, 5.91499 )
+transform = Transform( 1, -5.37888e-05, -0.000785672, 5.28908e-05, 0.999999, -0.00111048, 0.000785733, 0.00111044, 0.999999, -398.912, 2.66171, 13.7246 )
 
 [node name="Floor" type="StaticBody" parent="."]
 transform = Transform( 400, 0, 0, 0, 1, 0, 0, 0, 150, -4.61804, -0.858871, 6.4393 )
@@ -611,7 +615,7 @@ script = ExtResource( 133 )
 [node name="Kuno" type="AnimatedSprite3D" parent="church"]
 transform = Transform( 0.869565, 0, 0, 0, 0.869565, 0, 0, 0, 0.434782, -0.00846863, 1.98393, 4.16739 )
 frames = SubResource( 17 )
-frame = 3
+frame = 97
 playing = true
 
 [node name="lights" type="Spatial" parent="church"]
@@ -868,6 +872,198 @@ transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 398.062, -0.141958, -2.45117 )
 [node name="CollisionShape" type="CollisionShape" parent="Roads/road22/StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0402832, 0.0137161, 3.46466 )
 shape = SubResource( 12 )
+
+[node name="road24" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -391.685, -0.061, 51.497 )
+
+[node name="road25" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -366.58, -0.061, 51.497 )
+
+[node name="road26" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -341.369, -0.061, 51.497 )
+
+[node name="road27" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -316.264, -0.061, 51.497 )
+
+[node name="road28" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -291.132, -0.061, 51.497 )
+
+[node name="road29" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -266.028, -0.061, 51.497 )
+
+[node name="road30" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -240.817, -0.061, 51.497 )
+
+[node name="road31" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -215.712, -0.061, 51.497 )
+
+[node name="road32" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -190.663, -0.061, 51.497 )
+
+[node name="road33" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -165.559, -0.061, 51.497 )
+
+[node name="road34" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -140.348, -0.061, 51.497 )
+
+[node name="road35" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -115.243, -0.061, 51.497 )
+
+[node name="road36" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -90.111, -0.061, 51.497 )
+
+[node name="road37" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -65.0063, -0.061, 51.497 )
+
+[node name="road38" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -39.7951, -0.061, 51.497 )
+
+[node name="road39" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -14.6904, -0.061, 51.497 )
+
+[node name="road40" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 10.6059, -0.061, 51.497 )
+
+[node name="road41" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 35.7106, -0.061, 51.497 )
+
+[node name="road42" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 60.9218, -0.061, 51.497 )
+
+[node name="road43" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 86.0265, -0.061, 51.497 )
+
+[node name="road44" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 111.158, -0.061, 51.497 )
+
+[node name="road45" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 136.263, -0.061, 51.497 )
+
+[node name="road46" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 161.474, -0.061, 51.497 )
+
+[node name="road47" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 186.579, -0.061, 51.497 )
+
+[node name="road48" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 211.627, -0.061, 51.497 )
+
+[node name="road49" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 236.732, -0.061, 51.497 )
+
+[node name="road50" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 261.943, -0.061, 51.497 )
+
+[node name="road51" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 287.048, -0.061, 51.497 )
+
+[node name="road52" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 312.18, -0.061, 51.497 )
+
+[node name="road53" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 337.284, -0.061, 51.497 )
+
+[node name="road54" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 362.496, -0.061, 51.497 )
+
+[node name="road55" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 387.6, -0.061, 51.497 )
+
+[node name="road56" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -391.685, -0.061, -17.0242 )
+
+[node name="road57" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -366.58, -0.061, -17.0242 )
+
+[node name="road58" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -341.369, -0.061, -17.0242 )
+
+[node name="road59" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -316.264, -0.061, -17.0242 )
+
+[node name="road60" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -291.132, -0.061, -17.0242 )
+
+[node name="road61" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -266.028, -0.061, -17.0242 )
+
+[node name="road62" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -240.817, -0.061, -17.0242 )
+
+[node name="road63" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -215.712, -0.061, -17.0242 )
+
+[node name="road64" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -190.663, -0.061, -17.0242 )
+
+[node name="road65" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -165.559, -0.061, -17.0242 )
+
+[node name="road66" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -140.348, -0.061, -17.0242 )
+
+[node name="road67" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -115.243, -0.061, -17.0242 )
+
+[node name="road68" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -90.111, -0.061, -17.0242 )
+
+[node name="road69" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -65.0063, -0.061, -17.0242 )
+
+[node name="road70" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -39.7951, -0.061, -17.0242 )
+
+[node name="road71" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -14.6904, -0.061, -17.0242 )
+
+[node name="road72" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 10.6059, -0.061, -17.0242 )
+
+[node name="road73" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 35.7106, -0.061, -17.0242 )
+
+[node name="road74" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 60.9218, -0.061, -17.0242 )
+
+[node name="road75" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 86.0265, -0.061, -17.0242 )
+
+[node name="road76" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 111.158, -0.061, -17.0242 )
+
+[node name="road77" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 136.263, -0.061, -17.0242 )
+
+[node name="road78" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 161.474, -0.061, -17.0242 )
+
+[node name="road79" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 186.579, -0.061, -17.0242 )
+
+[node name="road80" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 211.627, -0.061, -17.0242 )
+
+[node name="road81" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 236.732, -0.061, -17.0242 )
+
+[node name="road82" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 261.943, -0.061, -17.0242 )
+
+[node name="road83" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 287.048, -0.061, -17.0242 )
+
+[node name="road84" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 312.18, -0.061, -17.0242 )
+
+[node name="road85" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 337.284, -0.061, -17.0242 )
+
+[node name="road86" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 362.496, -0.061, -17.0242 )
+
+[node name="road87" parent="Roads" instance=ExtResource( 136 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 387.6, -0.061, -17.0242 )
 
 [node name="Trees" type="Spatial" parent="."]
 
@@ -1337,5 +1533,9 @@ transform = Transform( -3.0598e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.0598e-08, 358
 
 [node name="streetlight21" parent="Streetlight" instance=ExtResource( 9 )]
 transform = Transform( -3.0598e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.0598e-08, 396.345, 0.142575, -3.39389 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.936256, 0.351319, 0, -0.351319, 0.936256, 0, 123.37, 0 )
+light_energy = 1.527
 
 [connection signal="timeout" from="church/Timer" to="church" method="_on_Timer_timeout"]
