@@ -1,6 +1,8 @@
 extends Area
 
 
+var object = true
+
 export var key = ''
 export var alias = ''
 export var description = ''

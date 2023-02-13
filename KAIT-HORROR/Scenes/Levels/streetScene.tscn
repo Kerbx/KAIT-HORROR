@@ -132,7 +132,7 @@
 [ext_resource path="res://Media/Kuno/frame_041_delay-0.1s.png" type="Texture" id=130]
 [ext_resource path="res://Media/Kuno/frame_042_delay-0.1s.png" type="Texture" id=131]
 [ext_resource path="res://Media/Kuno/frame_044_delay-0.1s.png" type="Texture" id=132]
-[ext_resource path="res://Models/church/church.gd" type="Script" id=133]
+[ext_resource path="res://Scripts/church.gd" type="Script" id=133]
 [ext_resource path="res://Media/Music/Protorave - Disco Elysium OST.mp3" type="AudioStream" id=134]
 [ext_resource path="res://Scenes/Characters/mur.tscn" type="PackedScene" id=135]
 [ext_resource path="res://Models/road/road2.glb" type="PackedScene" id=136]
@@ -618,7 +618,7 @@ script = ExtResource( 133 )
 [node name="Kuno" type="AnimatedSprite3D" parent="church"]
 transform = Transform( 0.869565, 0, 0, 0, 0.869565, 0, 0, 0, 0.434782, -0.00846863, 1.98393, 4.16739 )
 frames = SubResource( 17 )
-frame = 117
+frame = 116
 playing = true
 
 [node name="lights" type="Spatial" parent="church"]

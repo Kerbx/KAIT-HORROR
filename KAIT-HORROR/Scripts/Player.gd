@@ -13,10 +13,9 @@ var rotationX = 0
 var rotationY = 0
 
 var flashlight
-
 var animation
-
 var collider
+
 
 func _ready():
 	animation = $floppa.get_child(2)
@@ -81,20 +80,28 @@ func _physics_process(delta):
 	if collider.is_colliding():
 		if Input.is_action_just_pressed("interact"):
 			obj = collider.get_collider()
-			obj.get_child(1).call('action')
-
+			if obj:
+				if 'character' in obj.get_node('interactive'):
+					obj.get_node('interactive').call('action')
+					Global.inDialog = true
+					
+	print(Global.inDialog)
 
 func _input(e):
 	# dont fucking say it.
-	if e is InputEventMouseMotion:
-		rotationX -= e.relative.y * ROTATION
-		rotationY -= e.relative.x * ROTATION
-		
-		if rotationX < -1.5:
-			rotationX = -1.5
-		elif rotationX > 1.5:
-			rotationX = 1.5
+	if not Global.inDialog:
+		if e is InputEventMouseMotion:
+			rotationX -= e.relative.y * ROTATION
+			rotationY -= e.relative.x * ROTATION
 			
-		transform.basis = Basis(Vector3.UP, rotationY)
-		$Spatial/Camera.transform.basis = Basis(Vector3.RIGHT, rotationX)
+			if rotationX < -1.5:
+				rotationX = -1.5
+			elif rotationX > 1.5:
+				rotationX = 1.5
+				
+			transform.basis = Basis(Vector3.UP, rotationY)
+			$Spatial/Camera.transform.basis = Basis(Vector3.RIGHT, rotationX)
 		
+
+func dialogExit():
+	Global.inDialog = false

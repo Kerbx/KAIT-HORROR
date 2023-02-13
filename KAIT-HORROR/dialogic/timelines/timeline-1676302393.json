@@ -56,6 +56,10 @@
 			"text": "Ты в Измайлово, дружище. Попал ты, вот что.\nТебя каким ветром сюда занесло?"
 		},
 		{
+			"emit_signal": "exit",
+			"event_id": "dialogic_040"
+		},
+		{
 			"event_id": "dialogic_022",
 			"transition_duration": 1
 		},
