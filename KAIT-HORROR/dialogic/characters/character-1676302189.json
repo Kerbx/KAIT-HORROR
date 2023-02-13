@@ -1,0 +1,21 @@
+{
+	"color": "#ffffffff",
+	"description": "волк.",
+	"display_name": "ВОЛК",
+	"display_name_bool": true,
+	"id": "character-1676302189.json",
+	"mirror_portraits": false,
+	"name": "mur",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": ""
+		}
+	],
+	"scale": 100,
+	"theme": ""
+}

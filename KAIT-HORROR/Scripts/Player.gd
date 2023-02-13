@@ -16,11 +16,13 @@ var flashlight
 
 var animation
 
+var collider
 
 func _ready():
 	animation = $floppa.get_child(2)
 	flashlight = $Spatial/Camera/flashlight
 	flashlight.set("light_energy", 0)
+	collider = $Spatial/Camera/Ray
 
 
 func _physics_process(delta):
@@ -74,6 +76,12 @@ func _physics_process(delta):
 	velocity.y += GRAVITY * delta
 	
 	velocity = move_and_slide(velocity, Vector3(0, 1, 0))
+	
+	var obj = null
+	if collider.is_colliding():
+		if Input.is_action_just_pressed("interact"):
+			obj = collider.get_collider()
+			obj.get_child(1).call('action')
 
 
 func _input(e):
