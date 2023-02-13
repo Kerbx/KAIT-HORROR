@@ -85,8 +85,6 @@ func _physics_process(delta):
 					obj.get_node('interactive').call('action')
 					Global.inDialog = true
 					
-	print(Global.inDialog)
-
 func _input(e):
 	# dont fucking say it.
 	if not Global.inDialog:
@@ -101,7 +99,6 @@ func _input(e):
 				
 			transform.basis = Basis(Vector3.UP, rotationY)
 			$Spatial/Camera.transform.basis = Basis(Vector3.RIGHT, rotationX)
-		
 
 func dialogExit():
 	Global.inDialog = false
