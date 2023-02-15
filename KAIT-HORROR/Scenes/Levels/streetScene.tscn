@@ -203,7 +203,7 @@ fog_height_curve = 0.5
 [node name="mur" parent="." instance=ExtResource( 135 )]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, -5.37888e-05, -0.000785672, 5.28908e-05, 0.999999, -0.00111048, 0.000785733, 0.00111044, 0.999999, -398.912, 2.66171, 13.7246 )
+transform = Transform( 0.965722, -0.000339359, -0.259578, 5.28908e-05, 0.999999, -0.00111048, 0.259578, 0.00105868, 0.965721, -398.912, 2.66171, 8.26181 )
 
 [node name="Dialog" parent="Player" instance=ExtResource( 137 )]
 timeline = "timeline-1676304059.json"
@@ -618,7 +618,7 @@ script = ExtResource( 133 )
 [node name="Kuno" type="AnimatedSprite3D" parent="church"]
 transform = Transform( 0.869565, 0, 0, 0, 0.869565, 0, 0, 0, 0.434782, -0.00846863, 1.98393, 4.16739 )
 frames = SubResource( 17 )
-frame = 116
+frame = 89
 playing = true
 
 [node name="lights" type="Spatial" parent="church"]

@@ -82,9 +82,10 @@ func _physics_process(delta):
 			obj = collider.get_collider()
 			if obj:
 				if 'character' in obj.get_node('interactive'):
-					obj.get_node('interactive').call('action')
-					Global.inDialog = true
-					
+					if not Global.inDialog:
+						obj.get_node('interactive').call('action')
+						Global.inDialog = true
+
 func _input(e):
 	# dont fucking say it.
 	if not Global.inDialog:
