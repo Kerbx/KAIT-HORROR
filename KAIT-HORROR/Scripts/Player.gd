@@ -76,6 +76,7 @@ func _physics_process(delta):
 	
 	velocity = move_and_slide(velocity, Vector3(0, 1, 0))
 	
+	# Raycast block. Used for interactive objects, e.g. characters.
 	var obj = null
 	if collider.is_colliding():
 		if Input.is_action_just_pressed("interact"):
@@ -85,6 +86,8 @@ func _physics_process(delta):
 					if not Global.inDialog:
 						obj.get_node('interactive').call('action')
 						Global.inDialog = true
+				elif 'object' in obj.get_node('interactive'):
+					pass
 
 func _input(e):
 	# dont fucking say it.

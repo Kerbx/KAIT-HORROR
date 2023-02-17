@@ -1,4 +1,4 @@
-[gd_scene load_steps=154 format=2]
+[gd_scene load_steps=159 format=2]
 
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Models/house/9house.glb" type="PackedScene" id=2]
@@ -137,6 +137,10 @@
 [ext_resource path="res://Scenes/Characters/mur.tscn" type="PackedScene" id=135]
 [ext_resource path="res://Models/road/road2.glb" type="PackedScene" id=136]
 [ext_resource path="res://addons/dialogic/Dialog.tscn" type="PackedScene" id=137]
+[ext_resource path="res://Models/dub/dub.glb" type="PackedScene" id=138]
+[ext_resource path="res://addons/silicon.vfx.volumetrics/volumetric_fog.gd" type="Script" id=139]
+[ext_resource path="res://addons/silicon.vfx.volumetrics/volume_proxy.gd" type="Script" id=140]
+[ext_resource path="res://addons/silicon.vfx.volumetrics/material/volumetric_material.gd" type="Script" id=141]
 
 [sub_resource type="CubeMesh" id=3]
 
@@ -198,12 +202,25 @@ fog_height_min = -2.0
 fog_height_max = 50.0
 fog_height_curve = 0.5
 
+[sub_resource type="Resource" id=18]
+script = ExtResource( 141 )
+scatter_color = Color( 0.745098, 0.745098, 0.745098, 1 )
+density = 0.05
+absorption_color = Color( 0, 0, 0, 1 )
+anisotropy = 0.0
+emission_enabled = false
+uvw_scale = Vector3( 1, 1, 1 )
+uvw_offset = Vector3( 0, 0, 0 )
+
 [node name="Main" type="Spatial"]
 
 [node name="mur" parent="." instance=ExtResource( 135 )]
 
+[node name="dub" parent="." instance=ExtResource( 138 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -373.632, 2.77579, -2.61006 )
+
 [node name="Player" parent="." instance=ExtResource( 1 )]
-transform = Transform( 0.965722, -0.000339359, -0.259578, 5.28908e-05, 0.999999, -0.00111048, 0.259578, 0.00105868, 0.965721, -398.912, 2.66171, 8.26181 )
+transform = Transform( 1, -5.37891e-05, -0.000786096, 5.28908e-05, 0.999999, -0.00111048, 0.000785828, 0.00111044, 0.999999, -398.912, 2.66171, 8.26181 )
 
 [node name="Dialog" parent="Player" instance=ExtResource( 137 )]
 timeline = "timeline-1676304059.json"
@@ -215,6 +232,10 @@ transform = Transform( 400, 0, 0, 0, 1, 0, 0, 0, 150, -4.61804, -0.858871, 6.439
 mesh = SubResource( 3 )
 skeleton = NodePath("../..")
 material/0 = SubResource( 14 )
+__meta__ = {
+"_vol_id": 18,
+"apply_volumetrics": false
+}
 
 [node name="CollisionShape" type="CollisionShape" parent="Floor"]
 shape = SubResource( 2 )
@@ -618,8 +639,11 @@ script = ExtResource( 133 )
 [node name="Kuno" type="AnimatedSprite3D" parent="church"]
 transform = Transform( 0.869565, 0, 0, 0, 0.869565, 0, 0, 0, 0.434782, -0.00846863, 1.98393, 4.16739 )
 frames = SubResource( 17 )
-frame = 89
+frame = 39
 playing = true
+__meta__ = {
+"_vol_id": 132
+}
 
 [node name="lights" type="Spatial" parent="church"]
 transform = Transform( 0.419968, 0, -0.11253, 0, 0.434783, 0, 0.11253, 0, 0.419968, -142.968, 0, -94.1208 )
@@ -628,41 +652,65 @@ transform = Transform( 0.419968, 0, -0.11253, 0, 0.434783, 0, 0.11253, 0, 0.4199
 transform = Transform( 0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 369.837, 5.99278, 112.128 )
 light_color = Color( 0.835294, 0.0352941, 0.976471, 1 )
 omni_range = 1.52607
+__meta__ = {
+"_vol_id": 133
+}
 
 [node name="OmniLight2" type="OmniLight" parent="church/lights"]
 transform = Transform( 0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 370.957, 5.99278, 111.644 )
 light_color = Color( 0.815686, 0.0352941, 0.976471, 1 )
 omni_range = 1.52607
+__meta__ = {
+"_vol_id": 134
+}
 
 [node name="OmniLight3" type="OmniLight" parent="church/lights"]
 transform = Transform( 0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 370.65, 4.61843, 127.062 )
 light_color = Color( 0.835294, 0.0352941, 0.976471, 1 )
 omni_range = 1.52607
+__meta__ = {
+"_vol_id": 135
+}
 
 [node name="OmniLight4" type="OmniLight" parent="church/lights"]
 transform = Transform( 0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 371.833, 5.54612, 132.839 )
 light_color = Color( 0.835294, 0.0352941, 0.976471, 1 )
 omni_range = 1.52607
+__meta__ = {
+"_vol_id": 136
+}
 
 [node name="OmniLight5" type="OmniLight" parent="church/lights"]
 transform = Transform( 0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 376.275, 5.52652, 136.15 )
 light_color = Color( 0.835294, 0.0352941, 0.976471, 1 )
 omni_range = 1.52607
+__meta__ = {
+"_vol_id": 137
+}
 
 [node name="OmniLight6" type="OmniLight" parent="church/lights"]
 transform = Transform( 0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 377.395, 5.52652, 135.667 )
 light_color = Color( 0.815686, 0.0352941, 0.976471, 1 )
 omni_range = 1.52607
+__meta__ = {
+"_vol_id": 138
+}
 
 [node name="OmniLight7" type="OmniLight" parent="church/lights"]
 transform = Transform( 0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 379.421, 5.99278, 130.653 )
 light_color = Color( 0.835294, 0.0352941, 0.976471, 1 )
 omni_range = 1.52607
+__meta__ = {
+"_vol_id": 139
+}
 
 [node name="OmniLight8" type="OmniLight" parent="church/lights"]
 transform = Transform( 0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 377.186, 5.52905, 122.951 )
 light_color = Color( 0.835294, 0.0352941, 0.976471, 1 )
 omni_range = 1.52607
+__meta__ = {
+"_vol_id": 140
+}
 
 [node name="Timer" type="Timer" parent="church"]
 wait_time = 0.42
@@ -1539,6 +1587,30 @@ transform = Transform( -3.0598e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.0598e-08, 396
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.936256, 0.351319, 0, -0.351319, 0.936256, 0, 123.37, 0 )
+visible = false
 light_energy = 1.527
+__meta__ = {
+"_vol_id": 425,
+"volumetric": 1.0
+}
+
+[node name="VolumetricFog" type="Node" parent="."]
+script = ExtResource( 139 )
+start = 0.1
+end = 100.0
+tile_size = 2
+samples = 1
+distribution = 0.9
+temporal_blending = 0.95
+volumetric_shadows = false
+shadow_atlas_size = 1024
+ambient_light_color = Color( 0, 0, 0, 1 )
+ambient_light_energy = 1.0
+cull_mask = 1048575
+
+[node name="VolumeProxy" type="Spatial" parent="VolumetricFog"]
+script = ExtResource( 140 )
+material = SubResource( 18 )
+bounds_mode = 0
 
 [connection signal="timeout" from="church/Timer" to="church" method="_on_Timer_timeout"]
