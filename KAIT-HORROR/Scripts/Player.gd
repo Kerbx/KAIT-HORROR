@@ -76,6 +76,8 @@ func _physics_process(delta):
 	
 	velocity = move_and_slide(velocity, Vector3(0, 1, 0))
 	
+	Global.pos = global_transform.origin
+	
 	# Raycast block. Used for interactive objects, e.g. characters.
 	var obj = null
 	if collider.is_colliding():
