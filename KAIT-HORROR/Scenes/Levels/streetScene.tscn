@@ -218,7 +218,7 @@ uvw_offset = Vector3( 0, 0, 0 )
 [node name="Main" type="Spatial"]
 
 [node name="mur" parent="." instance=ExtResource( 135 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -399.76, 0, 0 )
+transform = Transform( 0.998383, 0, 0.0568498, 0, 1, 0, -0.0568498, 0, 0.998383, -399.76, 0, 0 )
 script = ExtResource( 142 )
 
 [node name="dub" parent="." instance=ExtResource( 138 )]
@@ -234,10 +234,12 @@ timeline = "timeline-1676304059.json"
 transform = Transform( 400, 0, 0, 0, 1, 0, 0, 0, 150, -4.61804, -0.858871, 6.4393 )
 
 [node name="Floor" type="MeshInstance" parent="Floor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000502397, 0.261093, -0.00143677 )
 mesh = SubResource( 3 )
 skeleton = NodePath("../..")
 material/0 = SubResource( 14 )
 __meta__ = {
+"_vol_id": 753,
 "apply_volumetrics": false
 }
 
@@ -643,8 +645,11 @@ script = ExtResource( 133 )
 [node name="Kuno" type="AnimatedSprite3D" parent="church"]
 transform = Transform( 0.869565, 0, 0, 0, 0.869565, 0, 0, 0, 0.434782, -0.00846863, 1.98393, 4.16739 )
 frames = SubResource( 17 )
-frame = 23
+frame = 85
 playing = true
+__meta__ = {
+"_vol_id": 867
+}
 
 [node name="lights" type="Spatial" parent="church"]
 transform = Transform( 0.419968, 0, -0.11253, 0, 0.434783, 0, 0.11253, 0, 0.419968, -142.968, 0, -94.1208 )
@@ -702,6 +707,7 @@ autoplay = true
 max_distance = 145.04
 
 [node name="Roads" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0 )
 
 [node name="road1" parent="Roads" instance=ExtResource( 6 )]
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -385.158, -0.141958, -2.45117 )
@@ -1562,11 +1568,11 @@ transform = Transform( -3.0598e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.0598e-08, 358
 [node name="streetlight21" parent="Streetlight" instance=ExtResource( 9 )]
 transform = Transform( -3.0598e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.0598e-08, 396.345, 0.142575, -3.39389 )
 
-[node name="DirectionalLight" type="DirectionalLight" parent="."]
+[node name="DEBUG_LIGHT" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.936256, 0.351319, 0, -0.351319, 0.936256, 0, 123.37, 0 )
-visible = false
 light_energy = 1.527
 __meta__ = {
+"_vol_id": 1160,
 "volumetric": 1.0
 }
 
@@ -1585,6 +1591,7 @@ ambient_light_energy = 1.0
 cull_mask = 1048575
 
 [node name="VolumeProxy" type="Spatial" parent="VolumetricFog"]
+visible = false
 script = ExtResource( 140 )
 material = SubResource( 18 )
 bounds_mode = 0
